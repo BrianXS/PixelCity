@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Web.Services.Database;
+using Web.Services.Repositories;
 
 namespace Web
 {
@@ -30,6 +31,8 @@ namespace Web
             });
             
             services.AddControllersWithViews();
+            
+            RepositoryRegister.Init(services);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

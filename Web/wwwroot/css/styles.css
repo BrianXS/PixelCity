@@ -1,0 +1,95 @@
+/*********************************************
+CONTENTS
+
+1. Shared Styles
+2. Menu
+3. Footer
+***********************************************/
+
+/**********************************************
+1. Shared Styles
+***********************************************/
+
+@font-face {
+    font-family: WorldOne;
+    src: url("/fonts/World-One.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "TexHeros";
+    src: url("/fonts/text-regular.otf") format("opentype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "TexHeros";
+    src: url("/fonts/text-bold.otf") format("opentype");
+    font-weight: 600;
+}
+
+
+body {
+    background: #f0eeee;
+}
+
+
+/**********************************************
+2. Menu
+***********************************************/
+
+#upper-menu {
+    background: url("/img/header.jpeg");
+    height: 81px;
+}
+
+
+#upper-menu  > .container > nav > div > a {
+    color: white;
+    text-decoration: none;
+}
+
+#upper-menu  > .container > nav > div:first-child > a {
+    background: linear-gradient(
+            178deg
+            , white 0%, #efefef 50%, #d7d9da 50%, #bfbfbf 100%);
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-size: 46px;
+    text-transform: uppercase;
+    font-family: "WorldOne";
+}
+
+#upper-menu  > .container > nav > div:last-child,
+#upper-menu  > .container > nav > div:nth-child(2){
+    padding-top: 20px;
+    font-family: "TexHeros", sans-serif;
+}
+
+#upper-menu  > .container > nav > div:nth-child(2) > a {
+    font-weight: 600;
+    font-size: 14px;
+    
+}
+
+
+#upper-menu  > .container > nav > div:last-child {
+    text-align: right;
+}
+
+#upper-menu  > .container > nav > div:last-child > a {
+    background: linear-gradient(180deg, #b4de23, #92c015);
+    border-radius: 100px;
+    padding: 7px 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+    border: 5px solid #14466acf;
+    font-family: "TexHeros", sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+#lower-menu {
+    background: #004160;
+    height: 40px;
+}

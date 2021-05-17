@@ -17,7 +17,7 @@
       <Folder Include="Data\Enums" />
       <Folder Include="Data\Profiles" />
       <Folder Include="Data\ViewModels" />
-      <Folder Include="wwwroot" />
+      <Folder Include="wwwroot\js" />
     </ItemGroup>
 
 </Project>
