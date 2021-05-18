@@ -4,6 +4,7 @@ CONTENTS
 1. Shared Styles
 2. Menu
 3. Footer
+4. Login & Register 
 ***********************************************/
 
 /**********************************************
@@ -27,9 +28,27 @@ CONTENTS
     font-weight: 600;
 }
 
+@font-face {
+    font-family: "TexHeros";
+    src: url("/fonts/text-italic.otf") format("opentype");
+    font-style: italic;
+}
+
 
 body {
     background: #f0eeee;
+    font-family: "TexHeros";
+}
+
+.text-divider{
+    margin: 2em 0; line-height: 0; text-align: center;
+}
+
+.text-divider span{
+    background-color: #f0eeee; padding: .5em;
+}
+.text-divider:before{
+    content: " "; display: block; border-top: 1px solid #f0eeee; border-bottom: 1px solid #c1c1c1;
 }
 
 
@@ -62,7 +81,7 @@ body {
 
 #upper-menu  > .container > nav > div:last-child,
 #upper-menu  > .container > nav > div:nth-child(2){
-    padding-top: 20px;
+    padding-top: 23px;
     font-family: "TexHeros", sans-serif;
 }
 
@@ -92,4 +111,149 @@ body {
 #lower-menu {
     background: #004160;
     height: 40px;
+}
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767px) {
+
+    #upper-menu  > .container {
+        max-width: 100%;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    #upper-menu  > .container > nav > div:last-child > a {
+        padding: 7px 15px;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { }
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { }
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) { }
+
+
+/**********************************************
+4. Login and Register
+***********************************************/
+
+#register-card {
+    margin-top: 40px;
+    background: white;
+    border: 10px solid transparent;
+    border-image: 10 repeating-linear-gradient(-45deg, #f66a76 0, #f66a76 1em, transparent 0, transparent 2em, #46b3f2 0, #46b3f2 3em, transparent 0, transparent 4em);
+    height: 550px;
+}
+
+#register-card p, #register-card h3 {
+    letter-spacing: 0.6px;
+}
+
+#register-card > .row > div:last-child {
+    text-align: center;
+    background: #f0eeee;
+    height: 530px;
+    border-radius: 0 4px 4px 0;
+    padding-top: 20px;
+    border-left: 1px solid #c1c1c1;
+}
+
+#register-card .text-divider {
+    color: #909090;
+    font-style: italic;
+}
+
+#register-card .btn-success  {
+    background: linear-gradient(180deg, #88e64f 0%, #5ed037 100%);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#88e64f), to(#5ed037));
+    border-top: 1px solid #6caf40;
+    border-left: 1px solid #53a32e;
+    border-right: 1px solid #53a32e;
+    border-bottom: 1px solid #3e9a20;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+    box-shadow: inset 0 1px 0 0 #a3eb72, 0 1px 2px 0 #b3b3b3;
+    letter-spacing: 2px;
+}
+
+#register-card .btn-success:hover {
+    background: linear-gradient(180deg, #78da40 0%, #45b31d 100%);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#78da40), to(#45b31d));
+}
+
+#register-card ul {
+    text-align: left;
+}
+
+#register-card ul li {
+    margin-top: 9px;
+}
+
+#register-card ul li::marker {
+    color: #006595;
+}
+
+#register-card ul li a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #006595;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+}
+
+
+#register-card ul li a:hover {
+    text-decoration: underline;
+    color: #067cb4;
+}
+
+
+#register-card > div > div:first-child {
+    padding-top: 4.5rem !important;
+}
+#register-card > div > div > form > div {
+    margin-bottom: 25px;
+}
+
+#register-card > div > div > form > div > label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.6px;
+}
+
+#register-card > div > div > form {
+    margin-top: 2.5rem;
+}
+
+#register-card > div > div > form > div > input {
+    padding: 10px 10px;
+}
+
+#register-card > div > div > form > div > button {
+    margin-top: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.register-fix {
+    height: unset !important;
+}
+
+.register-fix > div > div:last-child {
+    height: 620px !important;;
+}
+.register-fix ul li,
+.register-fix ul li::marker {
+    color: #909090 !important;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.6px;
 }

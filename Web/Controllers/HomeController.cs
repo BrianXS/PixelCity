@@ -19,5 +19,17 @@ namespace Web.Controllers
             var latestPosts = _postRepository.getLatestPosts();
             return View(latestPosts);
         }
+        
+        [HttpGet("Login")]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpGet("Register")]
+        public IActionResult Register()
+        {
+            return View();
+        }
     }
 }
