@@ -1,13 +1,10 @@
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.AspNetCore.Identity;
 
 namespace Web.Data.Entities
 {
-    public class User
+    public class User : IdentityUser<int>
     {
-        public int Id { get; set; }
-        
         public Rank Rank { get; set; }
         public int RankId { get; set; }
         

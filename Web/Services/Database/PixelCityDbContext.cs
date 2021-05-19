@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Web.Data.Entities;
 
 namespace Web.Services.Database
 {
-    public class PixelCityDbContext : DbContext
+    public class PixelCityDbContext : IdentityDbContext<User, IdentityRole<int>, int>
     {
         public PixelCityDbContext(DbContextOptions options) : base(options)
         {
@@ -25,7 +27,6 @@ namespace Web.Services.Database
             base.OnModelCreating(modelBuilder);
         }
 
-        public DbSet<User> Users { get; set; }
         public DbSet<Badge> Badges { get; set; }
         public DbSet<Community> Communities { get; set; }
         public DbSet<Post> Posts { get; set; }

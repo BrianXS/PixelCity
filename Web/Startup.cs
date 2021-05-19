@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Web.Data.Entities;
 using Web.Services.Database;
 using Web.Services.Repositories;
 
@@ -29,7 +31,25 @@ namespace Web
             {
                 options.UseSqlServer(_configuration.GetConnectionString("local"));
             });
-            
+
+            services.AddIdentity<User, IdentityRole<int>>(options =>
+                {
+                    // Password settings.
+                    options.Password.RequireDigit = false;
+                    options.Password.RequireLowercase = false;
+                    options.Password.RequireNonAlphanumeric = false;
+                    options.Password.RequireUppercase = false;
+                    options.Password.RequiredLength = 6;
+                    options.Password.RequiredUniqueChars = 0;
+
+                    // User settings.
+                    options.User.AllowedUserNameCharacters =
+                        "abcdefghijklmnopqrstuvwxyz0123456789";
+                    options.User.RequireUniqueEmail = true;
+
+                })
+                .AddEntityFrameworkStores<PixelCityDbContext>();
+
             services.AddControllersWithViews();
             
             RepositoryRegister.Init(services);
@@ -40,8 +60,12 @@ namespace Web
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
 
-            app.UseRouting();
+            app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

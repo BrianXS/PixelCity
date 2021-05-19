@@ -148,7 +148,6 @@ body {
     background: white;
     border: 10px solid transparent;
     border-image: 10 repeating-linear-gradient(-45deg, #f66a76 0, #f66a76 1em, transparent 0, transparent 2em, #46b3f2 0, #46b3f2 3em, transparent 0, transparent 4em);
-    height: 550px;
 }
 
 #register-card p, #register-card h3 {
@@ -257,3 +256,39 @@ body {
     font-size: 14px;
     letter-spacing: 0.6px;
 }
+
+#register-card > .row > div:first-child > form > .d-grid > .text-divider span {
+    background: white !important;
+}
+
+#register-card > .row > div:first-child > form > .d-grid a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767px) {
+    #register-wrapper > .container {
+        max-width: 95%;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .register-fix > div > div.p-5 {
+        padding-bottom: 3rem !important;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    #register-card > div > div:first-child {
+        padding-bottom: 0 !important;
+    }
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { }
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) { }
