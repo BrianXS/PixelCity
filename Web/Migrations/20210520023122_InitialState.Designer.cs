@@ -10,7 +10,7 @@ using Web.Services.Database;
 namespace Web.Migrations
 {
     [DbContext(typeof(PixelCityDbContext))]
-    [Migration("20210519024628_InitialState")]
+    [Migration("20210520023122_InitialState")]
     partial class InitialState
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -232,7 +232,7 @@ namespace Web.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Category");
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("Web.Data.Entities.Comment", b =>
@@ -338,7 +338,7 @@ namespace Web.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Rank");
+                    b.ToTable("Ranks");
                 });
 
             modelBuilder.Entity("Web.Data.Entities.User", b =>

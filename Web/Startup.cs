@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,11 +28,6 @@ namespace Web
         
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<PixelCityDbContext>(options =>
-            {
-                options.UseSqlServer(_configuration.GetConnectionString("local"));
-            });
-
             services.AddIdentity<User, IdentityRole<int>>(options =>
                 {
                     // Password settings.
@@ -49,9 +45,19 @@ namespace Web
 
                 })
                 .AddEntityFrameworkStores<PixelCityDbContext>();
-
-            services.AddControllersWithViews();
             
+            services.AddDbContext<PixelCityDbContext>(options =>
+            {
+                options.UseSqlServer(_configuration.GetConnectionString("local"));
+            });
+
+            services.Configure<RouteOptions>(options =>
+            {
+                options.LowercaseUrls = true;
+            });
+            
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddControllersWithViews();
             RepositoryRegister.Init(services);
         }
 

@@ -113,6 +113,57 @@ body {
     height: 40px;
 }
 
+.menu-searchbox-fix {
+    padding-top: 15px !important;
+}
+
+.menu-searchbox-fix button {
+    background: linear-gradient(180deg, #b4de23, #92c015);
+    border-radius: 0 6px 6px 0;
+    border-right: 1px solid #0202029e;
+    border-bottom: 1px solid #0202029e;
+    border-top: 1px solid #0202029e;
+    border-left: 1px solid transparent;
+}
+
+.menu-searchbox-fix input {
+    height: 36px;
+    margin-top: 1px;
+    font-size: 14px;
+    letter-spacing: 0.6px;
+}
+
+.user-menu-fix {
+    padding-top: 15.5px !important;
+}
+
+.user-menu-fix ul li a,
+.user-menu-fix ul li a:hover {
+    background: linear-gradient(180deg, #2f769a, #005282, #004160);
+    border-bottom: 1px solid #134568;
+    border-left: 1px solid #164b6f;
+    border-right: 1px solid #164b6f;
+    border-top: 1px solid #417b9e;
+    color: white;
+    box-shadow: 0px 0px 0px 1px #103956;
+    z-index: unset;
+    font-size: 14px;
+}
+
+.user-menu-fix ul li:nth-child(2) a,
+.user-menu-fix ul li:first-child a {
+    border-right: none
+}
+
+.user-menu-fix ul li:nth-child(2) a,
+.user-menu-fix ul li:last-child a {
+    border-left: none;
+}
+
+.user-menu-fix ul li:last-child a {
+    font-weight: 400;
+    letter-spacing: 1px;
+}
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) and (max-width: 767px) {
@@ -264,6 +315,16 @@ body {
 #register-card > .row > div:first-child > form > .d-grid a {
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+.custom-register-alert-warning {
+    border: 2px dashed #fac851!important;
+    margin-bottom: -10px;
+}
+
+.custom-register-alert-success {
+    border: 2px dashed #5cfa51 !important;
+    margin-bottom: -10px;
 }
 
 /* Small devices (landscape phones, 576px and up) */

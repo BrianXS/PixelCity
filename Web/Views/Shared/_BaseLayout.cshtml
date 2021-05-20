@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>PixelCity - @ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -10,19 +11,47 @@
 <div id="upper-menu">
     <div class="container">
         <nav class="row">
-            <div class="col-xxl-7 col-xl-7 col-lg-6 col-md-7 col-sm-6 col-6 offset-xxl-1 offset-xl-1 offset-lg-1">
-                <a asp-controller="Home" asp-action="Index">PixelCity</a>
-            </div>
             @if (Context.Request.Path.ToString().ToLower().Contains("login") ||
-                 Context.Request.Path.ToString().ToLower().Contains("register"))
+                 Context.Request.Path.ToString().ToLower().Contains("register") && !Context.User.Identity.IsAuthenticated)
             {
+                <div class="col-xxl-7 col-xl-7 col-lg-6 col-md-7 col-sm-6 col-6 offset-xxl-1 offset-xl-1 offset-lg-1">
+                    <a asp-controller="Home" asp-action="Index">PixelCity</a>
+                </div>
                 <div class="col-xxl-1 col-xl-1 col-lg-1 col-md-2 col-sm-2 d-none">
                 </div>
                 <div class="col-xxl-2 col-xl-2 col-lg-3 col-md-3 col-sm-4 col-6 d-none">
                 </div> 
             }
+            else if(Context.User.Identity.IsAuthenticated)
+            {
+                <div class="col-xxl-6 col-xl-6 col-lg-5 col-md-6 col-sm-6 col-6 offset-xxl-1 offset-xl-1 offset-lg-1">
+                    <a asp-controller="Home" asp-action="Index">PixelCity</a>
+                </div>
+                <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-3 col-sm-3 d-none d-sm-block user-menu-fix">
+                    <nav aria-label="user menu">
+                      <ul class="pagination justify-content-end">
+                        <li class="page-item"><a class="page-link" href="#" tabindex="-1"><i class="bi bi-eye-fill"></i></a></li>
+                        <li class="page-item"><a class="page-link" href="#"><i class="bi bi-envelope-fill"></i></a></li>
+                        <li class="page-item"><a class="page-link" href="#">@Context.User.Identity.Name</a></li>
+                      </ul>
+                    </nav>
+                </div>
+                <div class="col-xxl-2 col-xl-2 col-lg-3 col-md-3 col-sm-3 col-6 menu-searchbox-fix">
+                    <form method="get">
+                        <div class="input-group mb-3">
+                          <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar" aria-describedby="basic-addon2">
+                          <div class="input-group-append">
+                            <button class="btn btn-success" type="button"><i class="bi bi-search"></i></button>
+                          </div>
+                        </div>
+                    </form>
+                </div>   
+            }
             else
             {
+                <div class="col-xxl-7 col-xl-7 col-lg-6 col-md-7 col-sm-6 col-6 offset-xxl-1 offset-xl-1 offset-lg-1">
+                    <a asp-controller="Home" asp-action="Index">PixelCity</a>
+                </div>
                 <div class="col-xxl-1 col-xl-1 col-lg-1 col-md-2 col-sm-2 d-none d-sm-block">
                     <a asp-controller="Home" asp-action="Login">Identificarme</a>
                 </div>
@@ -33,11 +62,15 @@
         </nav>
     </div>
 </div>
-<div id="lower-menu">
-    <div class="container">
-        a
+@if(!(Context.Request.Path.ToString().ToLower().Contains("login") 
+      || Context.Request.Path.ToString().ToLower().Contains("register")))
+{
+    <div id="lower-menu">
+        <div class="container">
+            x
+        </div>
     </div>
-</div>
+}
 @RenderBody()
 <script src="js/bootstrap.bundle.js"></script>
 </body>

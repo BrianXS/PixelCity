@@ -3,8 +3,18 @@
 @{
     Layout = "_BaseLayout";
 }
-
-
+<br>
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-xxl-10 col-xl-10 col-lg-10 col-md-12 col-sm-12 offset-xxl-1 offset-xl-1 offset-lg-1 @TempData["ErrorClass"] alert alert-dismissible fade show" role="alert">
+                <strong>@(TempData[$"ErrorClass"].ToString().ToLower().Contains("success") ? "Exito! " : "Error! ")</strong> @TempData["ErrorMessage"].
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+}
 <div id="register-wrapper">
     <div class="container">
         <div class="row">

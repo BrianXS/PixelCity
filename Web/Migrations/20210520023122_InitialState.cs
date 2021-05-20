@@ -38,7 +38,7 @@ namespace Web.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Category",
+                name: "Categories",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -48,11 +48,11 @@ namespace Web.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Category", x => x.Id);
+                    table.PrimaryKey("PK_Categories", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Rank",
+                name: "Ranks",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -62,7 +62,7 @@ namespace Web.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Rank", x => x.Id);
+                    table.PrimaryKey("PK_Ranks", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -100,9 +100,9 @@ namespace Web.Migrations
                 {
                     table.PrimaryKey("PK_Communities", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Communities_Category_CategoryId",
+                        name: "FK_Communities_Categories_CategoryId",
                         column: x => x.CategoryId,
-                        principalTable: "Category",
+                        principalTable: "Categories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
                 });
@@ -133,9 +133,9 @@ namespace Web.Migrations
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AspNetUsers_Rank_RankId",
+                        name: "FK_AspNetUsers_Ranks_RankId",
                         column: x => x.RankId,
-                        principalTable: "Rank",
+                        principalTable: "Ranks",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
                 });
@@ -486,10 +486,10 @@ namespace Web.Migrations
                 name: "Communities");
 
             migrationBuilder.DropTable(
-                name: "Rank");
+                name: "Ranks");
 
             migrationBuilder.DropTable(
-                name: "Category");
+                name: "Categories");
         }
     }
 }

@@ -230,7 +230,7 @@ namespace Web.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Category");
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("Web.Data.Entities.Comment", b =>
@@ -336,7 +336,7 @@ namespace Web.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Rank");
+                    b.ToTable("Ranks");
                 });
 
             modelBuilder.Entity("Web.Data.Entities.User", b =>
