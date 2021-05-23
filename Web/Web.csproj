@@ -18,7 +18,6 @@
 
     <ItemGroup>
       <Folder Include="Data\Enums" />
-      <Folder Include="wwwroot\js" />
     </ItemGroup>
 
 </Project>

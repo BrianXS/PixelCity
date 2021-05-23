@@ -42,7 +42,6 @@ namespace Web
                     options.User.AllowedUserNameCharacters =
                         "abcdefghijklmnopqrstuvwxyz0123456789";
                     options.User.RequireUniqueEmail = true;
-
                 })
                 .AddEntityFrameworkStores<PixelCityDbContext>();
             

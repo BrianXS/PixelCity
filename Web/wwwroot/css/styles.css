@@ -11,6 +11,7 @@ CONTENTS
 1. Shared Styles
 ***********************************************/
 
+
 @font-face {
     font-family: WorldOne;
     src: url("/fonts/World-One.otf") format("opentype");
@@ -38,6 +39,7 @@ CONTENTS
 body {
     background: #f0eeee;
     font-family: "TexHeros";
+    min-width: 576px !important;
 }
 
 .text-divider{
@@ -108,11 +110,6 @@ body {
     letter-spacing: 1px;
 }
 
-#lower-menu {
-    background: #004160;
-    height: 40px;
-}
-
 .menu-searchbox-fix {
     padding-top: 15px !important;
 }
@@ -138,7 +135,8 @@ body {
 }
 
 .user-menu-fix ul li a,
-.user-menu-fix ul li a:hover {
+.user-menu-fix ul li a:hover,
+.user-menu-fix ul li a:focus {
     background: linear-gradient(180deg, #2f769a, #005282, #004160);
     border-bottom: 1px solid #134568;
     border-left: 1px solid #164b6f;
@@ -165,11 +163,186 @@ body {
     letter-spacing: 1px;
 }
 
+#notification-pill .badge {
+    height: 16px;
+    margin-top: 2px;
+    margin-left: 6px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.notification-dropdown {
+    inset: 0px auto auto 0px;
+    padding: 0px;
+    width: 240px;
+    border: 2px solid #00000078;
+    border-radius: 4px;
+    margin-top: 10px !important;
+    margin-left: 100px !important;
+}
+
+.notification-dropdown > li:first-child > span {
+    background: #fff !important;
+    color: #3a3a3a !important; 
+    font-weight: 600 !important;
+    box-shadow: unset !important;
+    letter-spacing: 1px !important;
+    font-size: 14px !important;
+    border: unset !important;
+    border-bottom: 1px dashed #929292 !important;
+}
+
+
+.notification-dropdown > li > a {
+    background: #fff !important;
+    box-shadow: unset !important;
+    border: unset !important;
+    color: #3a3a3a !important;
+}
+
+.notification-dropdown > li > a.only-item {
+    font-style: italic;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #a0a0a0 !important;
+}
+
+.notification-dropdown > li:last-child > a {
+    background: #effafd !important;
+    color: #2c5a71 !important;
+    font-weight: 600 !important;
+    border-radius: 0 0 4px 4px;
+    box-shadow: unset !important;
+    letter-spacing: 1px !important;
+    font-size: 14px !important;
+    border-top: 1px solid lightgray !important;
+    border: unset !important;
+    text-align: center;
+}
+
+.notification-dropdown:before {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #fff;
+    content: "";
+    margin-top: -10px !important;
+    margin-left: 111px !important;
+    position: absolute;
+}
+
+#last-header-item {
+    width: 100px;
+    margin-left: 40px !important;
+}
+
+#last-header-item:before {
+    border-bottom: 10px solid #effafd;
+    margin-top: -9px !important;
+    margin-left: 70px !important;
+}
+
+#last-header-item > li > a, 
+#last-header-item > li > form > button {
+    background: #effafd !important;
+    color: #2c5a71 !important;
+    font-weight: 600 !important;
+    border-radius: 0 0 4px 4px;
+    box-shadow: unset !important;
+    letter-spacing: 1px !important;
+    font-size: 14px !important;
+    border-top: 1px solid lightgray !important;
+    border-bottom: 1px solid lightgray !important;
+    text-align: center;
+}
+
+#lower-menu {
+    border-top: 1px solid #034260;
+    background: #004160 url(/img/navbg.gif) repeat-x top left;
+    height: 41px;
+}
+
+#lower-menu nav {
+    margin-top: 10px;
+}
+
+#lower-menu nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    background: #003750;
+    padding: 8px 14px;
+    border-radius: 4px 4px 0 0;
+    letter-spacing: 0.6px;
+    font-size: 14px;
+    margin-right: 2px;
+}
+
+
+#lower-menu nav a.active {
+    background: white;
+    color: #000000;
+}
+
+#lower-menu nav a.active:hover {
+    background: white;
+}
+
+#lower-menu nav a:hover {
+    background: #1b5881;
+    text-decoration: underline;
+}
+
+#sub-menu > .container > .row > div {
+    background: linear-gradient(180deg, white, #ebebeb);
+}
+
+#sub-menu > .container > .row > .custom-offset {
+    margin-left: 1.9% !important;
+    border: 1px solid lightgray;
+    border-top: unset;
+    height: 40px;
+    width: 94.6% !important;
+}
+
+#sub-menu > .container > .row > .custom-offset > nav {
+    margin-top: 7.5px;
+}
+
+#sub-menu > .container > .row > .custom-offset > nav > a {
+    text-decoration: none;
+    padding: 2px 15px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    border-radius: 20px;
+}
+
+
+#sub-menu > .container > .row > .custom-offset > nav > a.active,
+#sub-menu > .container > .row > .custom-offset > nav > a.hover {
+    color: #000;
+    background: #e4e4e4;
+}
+
+
+#sub-menu > .container > .row > .custom-offset > nav > a:hover {
+    background: #e4e4e4;
+}
+
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) and (max-width: 767px) {
 
-    #upper-menu  > .container {
+    #upper-menu  > .container,
+    #lower-menu  > .container,
+    #sub-menu >  .container {
         max-width: 100%;
+    }
+
+    #sub-menu > .container > .row > .custom-offset {
+        margin-left: 1.5% !important;
+        width: 97% !important;
     }
 }
 
@@ -178,16 +351,34 @@ body {
     #upper-menu  > .container > nav > div:last-child > a {
         padding: 7px 15px;
     }
+    
+    #sub-menu > .container > .row > .custom-offset {
+        margin-left: 1.5% !important;
+        width: 97% !important;
+    }
 }
 
 /* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { }
+@media (min-width: 992px) {
+    #sub-menu > .container > .row > .custom-offset {
+        margin-left: 9.5% !important;
+        width: 81.6% !important;
+    }
+}
 
 /* X-Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { }
+@media (min-width: 1200px) {
+    #sub-menu > .container > .row > .custom-offset {
+        margin-left: 9.3% !important;
+    }
+}
 
 /* XX-Large devices (larger desktops, 1400px and up) */
-@media (min-width: 1400px) { }
+@media (min-width: 1400px) {
+    #sub-menu > .container > .row > .custom-offset {
+        margin-left: 9.2% !important;
+    }
+}
 
 
 /**********************************************

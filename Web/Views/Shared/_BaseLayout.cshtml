@@ -24,19 +24,48 @@
             }
             else if(Context.User.Identity.IsAuthenticated)
             {
-                <div class="col-xxl-6 col-xl-6 col-lg-5 col-md-6 col-sm-6 col-6 offset-xxl-1 offset-xl-1 offset-lg-1">
+                <div class="col-xxl-5 col-xl-5 col-lg-4 col-md-5 col-sm-5 col-5 offset-xxl-1 offset-xl-1 offset-lg-1">
                     <a asp-controller="Home" asp-action="Index">PixelCity</a>
                 </div>
-                <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-3 col-sm-3 d-none d-sm-block user-menu-fix">
+                <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-4 col-4 user-menu-fix">
                     <nav aria-label="user menu">
                       <ul class="pagination justify-content-end">
-                        <li class="page-item"><a class="page-link" href="#" tabindex="-1"><i class="bi bi-eye-fill"></i></a></li>
-                        <li class="page-item"><a class="page-link" href="#"><i class="bi bi-envelope-fill"></i></a></li>
-                        <li class="page-item"><a class="page-link" href="#">@Context.User.Identity.Name</a></li>
+                          <li class="page-item">
+                              <a class="page-link d-flex" href="#" id="notification-pill" tabindex="-1" data-bs-auto-close="outside" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  <i class="bi bi-eye-fill"></i>
+                              </a>
+                                <ul class="dropdown-menu dropdown-menu-end notification-dropdown" aria-labelledby="notification-pill">
+                                  <li><span class="dropdown-item">Notificaciones</span></li>
+                                  <li><a class="dropdown-item only-item" href="#">No tienes notificaciones</a></li>
+                                  <li><a class="dropdown-item" href="#">Ver más</a></li>
+                                </ul>
+                          </li>
+                          <li class="page-item">
+                              <a class="page-link d-flex" id="messages-pill" href="#" data-bs-auto-close="outside" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  <i class="bi bi-envelope-fill"></i>
+                              </a>
+                              <ul class="dropdown-menu dropdown-menu-end notification-dropdown" aria-labelledby="messages-pill">
+                                <li><span class="dropdown-item">Mensajes</span></li>
+                                <li><a class="dropdown-item only-item" href="#">No tienes mensajes</a></li>
+                                <li><a class="dropdown-item" href="#">Ver más</a></li>
+                              </ul>
+                          </li>
+                          <li class="page-item">
+                              <a class="page-link" href="#" id="personal-pill" data-bs-auto-close="outside" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Context.User.Identity.Name</a>
+                              <ul class="dropdown-menu dropdown-menu-end notification-dropdown" id="last-header-item" aria-labelledby="personal-pill">
+                                <li><a class="dropdown-item" href="#">Perfil</a></li>
+                                <li><a class="dropdown-item" href="#">Configuracion</a></li>
+                                <li>
+                                    <form asp-controller="Authentication" asp-action="Logout">
+                                        <button class="dropdown-item">Salir</button>
+                                    </form>
+                                </li>
+                              </ul>
+                          </li>
                       </ul>
                     </nav>
                 </div>
-                <div class="col-xxl-2 col-xl-2 col-lg-3 col-md-3 col-sm-3 col-6 menu-searchbox-fix">
+                <div class="col-xxl-2 col-xl-2 col-lg-3 col-md-3 col-sm-3 col-3 menu-searchbox-fix">
                     <form method="get">
                         <div class="input-group mb-3">
                           <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar" aria-describedby="basic-addon2">
@@ -45,7 +74,7 @@
                           </div>
                         </div>
                     </form>
-                </div>   
+                </div>  
             }
             else
             {
@@ -53,10 +82,10 @@
                     <a asp-controller="Home" asp-action="Index">PixelCity</a>
                 </div>
                 <div class="col-xxl-1 col-xl-1 col-lg-1 col-md-2 col-sm-2 d-none d-sm-block">
-                    <a asp-controller="Home" asp-action="Login">Identificarme</a>
+                    <a asp-controller="Authentication" asp-action="Login">Identificarme</a>
                 </div>
                 <div class="col-xxl-2 col-xl-2 col-lg-3 col-md-3 col-sm-4 col-6">
-                    <a asp-controller="Home" asp-action="Register" >Registrate ya!</a>
+                    <a asp-controller="Authentication" asp-action="Register" >Registrate ya!</a>
                 </div>   
             }
         </nav>
@@ -67,12 +96,34 @@
 {
     <div id="lower-menu">
         <div class="container">
-            x
+            <div class="row">
+                <nav class="col-xxl-10 col-xl-10 col-lg-10 col-sm-12 offset-xxl-1 offset-xl-1 offset-lg-1 offset-sm-0">
+                    <a class="active" href="#"><i class="bi bi-house-door-fill"></i></a>
+                    <a href="#">Comunidades</a>
+                    <a href="#">TOPs</a>
+                    <a href="#">Administracion</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div id="sub-menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-xxl-10 col-xl-10 col-lg-10 col-sm-12 col-12 custom-offset">
+                    <nav>
+                        <a class="active" href="#">Inicio</a>
+                        <a href="#">Novatos</a>
+                        <a href="#">Intermedios</a>
+                        <a href="#">Veteranos</a>
+                    </nav>
+                </div>
+            </div>
         </div>
     </div>
 }
 @RenderBody()
 <script src="js/bootstrap.bundle.js"></script>
+<script src="js/sitescripts.js"></script>
 </body>
 </html>
 

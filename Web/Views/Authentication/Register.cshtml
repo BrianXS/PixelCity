@@ -23,7 +23,7 @@
                     <div class="col-xxl-8 col-xl-8 col-lg-7 p-5">
                         <h3><strong>Unete a PixelCity!</strong></h3>
                         <p class="text-secondary">Por favor, toma un momento para ser parte de la familia!</p>
-                        <form asp-controller="Home" asp-action="RegisterProcessor" method="post">
+                        <form asp-controller="Authentication" asp-action="RegisterProcessor" method="post">
                             <div class="form-group">
                                 <label asp-for="UserName">Usuario</label>
                                 <input type="text" class="form-control" asp-for="UserName" placeholder="Enter email">
@@ -39,7 +39,7 @@
                             <div class="d-grid">
                                 <button type="submit" class="btn btn-success">Registrarme!</button>
                                 <p class="text-divider d-block d-lg-none"><span>¿Ya tienes una cuenta?</span></p>
-                                <a asp-controller="Home" asp-action="Login" class="btn btn-success d-block d-lg-none" >Identificarme!</a>
+                                <a asp-controller="Authentication" asp-action="Login" class="btn btn-success d-block d-lg-none" >Identificarme!</a>
                             </div>
                         </form>
                     </div>
@@ -47,7 +47,7 @@
                         <img src="/img/bgreg.png" alt="">
                         <p class="text-divider"><span>¿Ya tienes una cuenta?</span></p>
                         <div class="d-grid">
-                            <a class="btn btn-success" asp-controller="Home" asp-action="Login">Identificarme</a>
+                            <a class="btn btn-success" asp-controller="Authentication" asp-action="Login">Identificarme</a>
                         </div>
                         <p class="text-divider"><span>Regístrate ahora para:</span></p>
                         <ul>
