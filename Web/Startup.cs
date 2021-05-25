@@ -56,7 +56,7 @@ namespace Web
             });
             
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
             RepositoryRegister.Init(services);
         }
 
