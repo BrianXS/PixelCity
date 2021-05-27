@@ -586,6 +586,10 @@ body {
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+    #register-card > div > #recovery-fix {
+        padding-bottom: 3rem !important;
+    }
+    
     #register-card > div > div:first-child {
         padding-bottom: 0 !important;
     }

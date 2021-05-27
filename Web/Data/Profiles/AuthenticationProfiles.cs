@@ -4,12 +4,14 @@ using Web.Data.ViewModels.Outgoing;
 
 namespace Web.Data.Profiles
 {
-    public class LoginProfiles : Profile
+    public class AuthenticationProfiles : Profile
     {
-        public LoginProfiles()
+        public AuthenticationProfiles()
         {
             CreateMap<IncomingUserData, OutgoingUserData>();
             CreateMap<IncomingRegistrationData, OutgoingRegistrationData>();
+
+            CreateMap<IncomingPasswordRecoveryDataFromEmail, OutgoingPasswordRecoveryData>();
         }
     }
 }

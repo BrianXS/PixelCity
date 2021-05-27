@@ -1,17 +1,5 @@
-using System;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Web.Data.Entities;
-using Web.Data.ViewModels.Incoming;
-using Web.Data.ViewModels.Outgoing;
-using Web.Services.Database;
 using Web.Services.Repositories.Abstract;
-using Web.Util.Attributes;
-using Web.Util.Transformers;
 
 namespace Web.Controllers
 {

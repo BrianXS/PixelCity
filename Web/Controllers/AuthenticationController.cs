@@ -8,6 +8,7 @@ using Web.Data.ViewModels.Incoming;
 using Web.Data.ViewModels.Outgoing;
 using Web.Services.Database;
 using Web.Util.Attributes;
+using Web.Util.Email;
 using Web.Util.Transformers;
 
 namespace Web.Controllers
@@ -94,7 +95,13 @@ namespace Web.Controllers
 
                 if (registrationResult.Succeeded)
                 {
-                    TempData["ErrorMessage"] = "Usuario registrado exitosamente";
+                    var token = (await _userManager
+                        .GenerateEmailConfirmationTokenAsync(futureUser))
+                        .Replace("+", "%2b");
+
+                    await MailSender.SendConfirmationEmail(futureUser.Email, token, futureUser.UserName);
+
+                    TempData["ErrorMessage"] = "Usuario registrado exitosamente, revise su bandeja de entrada y verifique el correo.";
                     TempData["ErrorClass"] = "custom-register-alert-success alert-success";
                     return RedirectToAction("Register");
                 }
@@ -114,6 +121,99 @@ namespace Web.Controllers
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
-        } 
+        }
+
+        [AnonymousOnly]
+        [HttpGet("Confirm")]
+        public async Task<IActionResult> ConfirmEmail([FromQuery] IncomingEmailConfirmation data)
+        {
+            var result = await _userManager.ConfirmEmailAsync(await _userManager.FindByNameAsync(data.Username), data.Token);
+            if (result.Succeeded)
+            {
+                TempData["ErrorMessage"] = "Correo confirmado exitosamente";
+                TempData["ErrorClass"] = "custom-register-alert-success alert-success";
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "Ha ocurrido un error confirmando el correo";
+                TempData["ErrorClass"] = "custom-register-alert-warning alert-warning";
+            }
+            return RedirectToAction("Login");
+        }
+        
+        [AnonymousOnly]
+        [HttpGet("Request-Password-Recovery")]
+        public IActionResult RequestPasswordRecovery()
+        {
+            return View();
+        }
+        
+        [AnonymousOnly]
+        [HttpPost("Request-Password-Recovery")]
+        public async Task<IActionResult> RequestPasswordRecoveryProcessor(IncomingPasswordRecoveryRequest data)
+        {
+            if (ModelState.IsValid)
+            {
+                TempData["ErrorMessage"] = "Revisa tu correo, hemos enviado la información para restablecer el acceso";
+                TempData["ErrorClass"] = "custom-register-alert-success alert-success";
+
+                var user = await _userManager.FindByNameAsync(data.Username);
+
+                if (user != null)
+                {
+                    var token = (await _userManager
+                        .GeneratePasswordResetTokenAsync(user))
+                        .Replace("+", "%2b");
+
+                    await MailSender.SendPasswordRecoveryEmail(user.Email, token, user.UserName);
+                }
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "Introduzca un correo valido";
+                TempData["ErrorClass"] = "custom-register-alert-warning alert-warning";
+            }
+            
+            return RedirectToAction("RequestPasswordRecovery");
+        }
+
+        [AnonymousOnly]
+        [HttpGet("Password-Recovery")]
+        public IActionResult PasswordRecovery([FromQuery] IncomingPasswordRecoveryDataFromEmail dataFromEmail)
+        {
+            if (!ModelState.IsValid)
+                return RedirectToAction("RequestPasswordRecovery");
+                    
+            return View(_mapper.Map<OutgoingPasswordRecoveryData>(dataFromEmail));
+        }
+        
+        [AnonymousOnly]
+        [HttpPost("Password-Recovery")]
+        public async Task<IActionResult> PasswordRecoveryProcessor(IncomingPasswordRecoveryData data)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByNameAsync(data.Username);
+                if (user != null)
+                {
+                    var result = await _userManager.ResetPasswordAsync(user, data.Token, data.Password);
+                    if (result.Succeeded)
+                    {
+                        TempData["ErrorMessage"] = "Contraseña reestablecida correctamente";
+                        TempData["ErrorClass"] = "custom-register-alert-success alert-success";
+                        return RedirectToAction("Login");
+                    }
+                }
+                
+                TempData["ErrorMessage"] = "Ha ocurrido un error inesperado";
+                TempData["ErrorClass"] = "custom-register-alert-warning alert-warning";
+                return RedirectToAction("Login");
+            }
+            
+            TempData["ErrorMessage"] = "Verifique que ambas contraseñas coincidan";
+            TempData["ErrorClass"] = "custom-register-alert-warning alert-warning";
+            return RedirectToAction("PasswordRecovery",
+                new IncomingPasswordRecoveryDataFromEmail {Username = data.Username, Token = data.Token});
+        }
     }
 }

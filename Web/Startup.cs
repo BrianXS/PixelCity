@@ -42,8 +42,10 @@ namespace Web
                     options.User.AllowedUserNameCharacters =
                         "abcdefghijklmnopqrstuvwxyz0123456789";
                     options.User.RequireUniqueEmail = true;
+                    options.SignIn.RequireConfirmedEmail = true;
                 })
-                .AddEntityFrameworkStores<PixelCityDbContext>();
+                .AddEntityFrameworkStores<PixelCityDbContext>()
+                .AddDefaultTokenProviders();
             
             services.AddDbContext<PixelCityDbContext>(options =>
             {
