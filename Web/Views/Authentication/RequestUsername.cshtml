@@ -1,4 +1,4 @@
-@model Web.Data.ViewModels.Outgoing.OutgoingPasswordRecoveryData
+@model Web.Data.ViewModels.Outgoing.OutgoingUsernameRecoveryResponse
 
 @{
     Layout = "_AuthLayout";
@@ -18,25 +18,19 @@
 <div id="register-wrapper">
     <div class="container">
         <div class="row">
-            <div class="col-xxl-6 col-xl-6 col-lg-6 offset-xxl-3 offset-xl-3 offset-lg-3" id="register-card">
+            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-8 col-sm-12 offset-xxl-3 offset-xl-3 offset-lg-3 offset-md-2" id="register-card">
                 <div class="row">
                     <div class="col-xxl-12 col-xl-12 col-lg-12 col-12 p-5" id="recovery-fix">
-                        <h3><strong>Restablece tu contraseña!</strong></h3>
+                        <h3><strong>Reenviar nombre de usuario!</strong></h3>
                         <p class="text-secondary">Un error lo comete cualquier troesma!</p>
                         <form method="post">
                             <div class="form-group">
-                                <label asp-for="Password">Contraseña</label>
-                                <input type="password" class="form-control" asp-for="Password" placeholder="***********************">
+                                <label asp-for="Email">Correo</label>
+                                <input type="email" class="form-control" asp-for="Email" placeholder="lince@ornamental.net">
                             </div>
-                            <div class="form-group">
-                                <label asp-for="PasswordConfirmation">Repetir Contraseña</label>
-                                <input type="password" class="form-control" asp-for="PasswordConfirmation" placeholder="***********************">
-                            </div>
-                            <input type="hidden" asp-for="UserName">
-                            <input type="hidden" asp-for="Token">
                             <div class="d-grid">
-                                <button type="submit" class="btn btn-success">Restablecer contraseña</button>
-                                <p class="text-divider"><span>¿Te acordaste de tu clave?</span></p>
+                                <button type="submit" class="btn btn-success">Reenviar Nombre de Usuario</button>
+                                <p class="text-divider"><span>¿Ya no lo necesitas?</span></p>
                                 <a asp-controller="Authentication" asp-action="Login" class="btn btn-success" >Identificarme</a>
                             </div>
                         </form>

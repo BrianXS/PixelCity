@@ -56,7 +56,10 @@ namespace Web.Controllers
 
                     if (loginResult.Succeeded)
                     {
-                        return RedirectToAction("Index", "Home");
+                        if(user.CompletedOnboarding)
+                            return RedirectToAction("Index", "Home");
+
+                        return RedirectToAction("Index","Onboarding");
                     }
                 }
             }
@@ -214,6 +217,54 @@ namespace Web.Controllers
             TempData["ErrorClass"] = "custom-register-alert-warning alert-warning";
             return RedirectToAction("PasswordRecovery",
                 new IncomingPasswordRecoveryDataFromEmail {Username = data.Username, Token = data.Token});
+        }
+        
+        [AnonymousOnly]
+        [HttpGet("Request-Confirmation-Email")]
+        public IActionResult RequestConfirmationEmail()
+        {
+            return View();
+        }
+        
+        [AnonymousOnly]
+        [HttpPost("Request-Confirmation-Email")]
+        public async Task<IActionResult> RequestConfirmationEmailProcessor(IncomingEmailConfirmationResendRequest data)
+        {
+            var user = await _userManager.FindByNameAsync(data.Username);
+            if (user != null)
+            {
+                var token = (await _userManager
+                    .GenerateEmailConfirmationTokenAsync(user))
+                    .Replace("+", "%2b");
+
+                await MailSender.SendConfirmationEmail(user.Email, token, user.UserName);
+            }
+            
+            TempData["ErrorMessage"] = "Revise su bandeja de entrada y verifique el correo.";
+            TempData["ErrorClass"] = "custom-register-alert-success alert-success";
+            return RedirectToAction("Login");
+        }
+        
+        [AnonymousOnly]
+        [HttpGet("Request-Username-Email")]
+        public IActionResult RequestUsername()
+        {
+            return View();
+        }
+        
+        [AnonymousOnly]
+        [HttpPost("Request-Username-Email")]
+        public async Task<IActionResult> RequestUsernameProcessor(IncomingUsernameRecoveryRequest data)
+        {
+            var user = await _userManager.FindByEmailAsync(data.Email);
+            if (user != null)
+            {
+                await MailSender.SendUsernameRecoveryEmail(user.Email, user.UserName);
+            }
+            
+            TempData["ErrorMessage"] = "Revise su bandeja de entrada, hemos enviado su nombre de usuario.";
+            TempData["ErrorClass"] = "custom-register-alert-success alert-success";
+            return RedirectToAction("Login");
         }
     }
 }

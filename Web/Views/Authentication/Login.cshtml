@@ -1,7 +1,7 @@
 @model Web.Data.ViewModels.Outgoing.OutgoingUserData
 
 @{
-    Layout = "_BaseLayout";
+    Layout = "_AuthLayout";
 }
 <br>
 @if (TempData["ErrorMessage"] != null)
@@ -48,8 +48,8 @@
                         <p class="text-divider"><span>¿Tienes Problemas?</span></p>
                         <ul>
                             <li><a asp-controller="Authentication" asp-action="RequestPasswordRecovery">Olvidé mi contraseña</a></li>
-                            <li><a href="#">Olvidé mi nombre de usuario</a></li>
-                            <li><a href="#">Reenviar correo de confirmación</a></li>
+                            <li><a asp-controller="Authentication" asp-action="RequestUsername">Olvidé mi nombre de usuario</a></li>
+                            <li><a asp-controller="Authentication" asp-action="RequestConfirmationEmail">Reenviar correo de confirmación</a></li>
                         </ul>
                     </div>
                 </div>

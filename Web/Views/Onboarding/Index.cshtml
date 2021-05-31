@@ -1,0 +1,51 @@
+@model Web.Data.ViewModels.Outgoing.OutgoingOnboardingResponse
+
+@{
+    Layout = "_OnboardingLayout";
+    ViewData["Title"] = "Completa tu perfil";
+}
+
+<div id="register-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-xxl-8 col-xl-10 col-lg-10 offset-xxl-2 offset-xl-1 offset-lg-1" id="register-card">
+                <div class="row">
+                    <div class="col-xxl-8 col-xl-8 col-lg-7 p-5" id="onboarding-main-div-fix">
+                        <h3><strong>Ya eres parte de PixelCity!</strong></h3>
+                        <p class="text-secondary">Por favor toma unos minutos para completar tu registro.</p>
+                        <form method="post" class="row" enctype="multipart/form-data">
+                            <div class="form-group col-xxl-6 col-xl-6 col-lg-12">
+                                <label asp-for="Names">Nombres</label>
+                                <input type="text" class="form-control" asp-for="Names" placeholder="Matias">
+                            </div>
+                            <div class="form-group col-xxl-6 col-xl-6 col-lg-12">
+                                <label asp-for="Lastnames">Apellidos</label>
+                                <input type="text" class="form-control" asp-for="Lastnames" placeholder="Rodriguez">
+                            </div>
+                            <div class="form-group col-12">
+                                <label asp-for="BirthDate">Fecha de nacimiento</label>
+                                <input type="date" class="form-control" asp-for="BirthDate">
+                            </div>
+                            <div class="form-group col-12">
+                                <input type="file" accept="image/jpeg" class="form-control d-none picture-input" asp-for="ProfilePicture" required>
+                                <label for="ProfilePicture" class="picture-label"></label>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-success">Continuar</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-xxl-4 col-xl-4 col-lg-5 d-none d-lg-block onboarding-sidebar">
+                        <img src="/img/bgreg.png" alt="">
+                        <p class="text-divider"><span>Codigo de Conducta</span></p>
+                        <ul>
+                            <li><a href="#">Están prohibidos los acosos a cualquier miembro del grupo.</a></li>
+                            <li><a href="#">Está prohibido ofender por sexo, raza, religión, situación económica, preferencia sexual o política.</a></li>
+                            <li><a href="#">Está prohibido el spam y contenido ponográfico o material que esté relacionado con ello.</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

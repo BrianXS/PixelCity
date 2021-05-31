@@ -6,6 +6,7 @@ CONTENTS
 3. Footer
 4. Login & Register 
 5. Index
+6. Onboarding
 ***********************************************/
 
 /**********************************************
@@ -596,10 +597,18 @@ body {
 }
 
 /* X-Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { }
+@media (min-width: 1200px) {
+    #recovery-fix h3 {
+        font-size: 1.65rem;
+    }
+}
 
 /* XX-Large devices (larger desktops, 1400px and up) */
 @media (min-width: 1400px) {
+    #recovery-fix h3 {
+        font-size: 1.75rem;
+    }
+    
     #register-card ul {
         padding-left: 22px;
     }
@@ -767,4 +776,39 @@ body {
     margin-top: -4px;
     margin-right: 5px;
     margin-left: 5px;
+}
+
+
+/**********************************************
+6. Onboarding
+***********************************************/
+
+.picture-label {
+    border: 2px dashed lightgray;
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    text-align: center;
+}
+
+.picture-label:after {
+    content: "Por favor seleccione un avatar"
+}
+
+.picture-input:valid + .picture-label {
+    border: 2px dashed var(--bs-success);
+}
+
+
+.picture-input:valid + .picture-label:after {
+    content: "Avatar seleccionado correctamente"
+}
+
+.onboarding-sidebar {
+    height: unset !important;
+}
+
+#register-card > div > #onboarding-main-div-fix {
+    padding-top: 3.8rem !important;
+    padding-bottom: 3rem !important
 }

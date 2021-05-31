@@ -35,7 +35,7 @@ namespace Web.Util.Email
             var emailContent = "";
             
             await Execute(sendTo, sendTo, Constants.Global.EmailAddress, Constants.Global.SenderName, 
-                "PixelCity - Verify Your account", emailContent, ConfirmationEmailText(token, username));
+                "PixelCity - Verifica tu cuenta", emailContent, ConfirmationEmailText(token, username));
         }
         
         public static async Task SendPasswordRecoveryEmail(string sendTo, string token, string username)
@@ -43,7 +43,15 @@ namespace Web.Util.Email
             var emailContent = "";
             
             await Execute(sendTo, sendTo, Constants.Global.EmailAddress, Constants.Global.SenderName, 
-                "PixelCity - Verify Your account", emailContent, PasswordRecoveryEmailText(token, username));
+                "PixelCity - Cambia tu contraseña", emailContent, PasswordRecoveryEmailText(token, username));
+        }
+        
+        public static async Task SendUsernameRecoveryEmail(string sendTo, string username)
+        {
+            var emailContent = "";
+            
+            await Execute(sendTo, sendTo, Constants.Global.EmailAddress, Constants.Global.SenderName, 
+                "PixelCity - Tu nombre de usuario es " + username, emailContent, UsernameRecoveryEmailText(username));
         }
 
         private static string ConfirmationEmailText(string token, string username)
@@ -58,6 +66,14 @@ namespace Web.Util.Email
             return File
                 .ReadAllText(Directory.GetCurrentDirectory() + "/Util/Email/Templates/RecoverEmail.html", Encoding.UTF8)
                 .Replace("<a href=\"#\"", $"<a href=\"https://localhost:5001/password-recovery?UserName={username}&Token={token}\"");
+        }
+        
+        private static string UsernameRecoveryEmailText(string username)
+        {
+            return File
+                .ReadAllText(Directory.GetCurrentDirectory() + "/Util/Email/Templates/RecoverUsername.html", Encoding.UTF8)
+                .Replace("Lince-Placeholder", username)
+                .Replace("<a href=\"#\"", "<a href=\"https://localhost:5001/login\"");
         }
     }
 }

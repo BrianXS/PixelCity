@@ -10,7 +10,7 @@ using Web.Services.Database;
 namespace Web.Migrations
 {
     [DbContext(typeof(PixelCityDbContext))]
-    [Migration("20210520023122_InitialState")]
+    [Migration("20210531040514_InitialState")]
     partial class InitialState
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -351,6 +351,12 @@ namespace Web.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("BirthDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("CompletedOnboarding")
+                        .HasColumnType("bit");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -362,11 +368,17 @@ namespace Web.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<string>("LastNames")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("Names")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
@@ -384,6 +396,9 @@ namespace Web.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<string>("ProfilePicture")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("RankId")
                         .HasColumnType("int");

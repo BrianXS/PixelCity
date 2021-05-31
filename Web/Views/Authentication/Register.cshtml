@@ -1,7 +1,8 @@
 @model Web.Data.ViewModels.Outgoing.OutgoingRegistrationData
 
 @{
-    Layout = "_BaseLayout";
+    Layout = "_AuthLayout";
+    ViewData["Title"] = "Registro";
 }
 <br>
 @if (TempData["ErrorMessage"] != null)
