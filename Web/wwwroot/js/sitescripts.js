@@ -1,3 +1,6 @@
+/*****************
+ Notifications
+ *****************/
 const notificationsUrl = "/notifications/test"
 const messagesUrl = "/notifications/test"
 
@@ -26,4 +29,31 @@ async function renderMessagesCount(){
     spanElement.innerText = notificationsCount.value;
 
     notificationsLink.appendChild(spanElement);
+}
+
+/*****************
+ Onboarding Subscribe
+ *****************/
+
+const subscribeUrl = "/SubscribeToCommunity/Join"
+const unSubscribeUrl = "/SubscribeToCommunity/Leave"
+
+async function renderSubscription(id, el){
+    await genericFetch(`${subscribeUrl}/${id}`).then(data => {
+        if(data === "success") {
+            el.innerText = "dejar"
+            el.classList = "btn btn-clear onboarding-subscribed"
+            el.onclick = () => { renderUnsubscription(id, el) };
+        }
+    });
+}
+
+async function renderUnsubscription(id, el){
+    await genericFetch(`${unSubscribeUrl}/${id}`).then(data => {
+        if(data === "success") {
+            el.innerText = "seguir";
+            el.classList = "btn btn-clear subscribe-button"
+            el.onclick = () => { renderSubscription(id, el) };
+        }
+    });
 }

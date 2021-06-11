@@ -32,7 +32,6 @@ namespace Web.Services.Database
         public DbSet<Badge> Badges { get; set; }
         public DbSet<Community> Communities { get; set; }
 
-        public DbSet<Category> Categories { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Comment> Comments { get; set; }
     }

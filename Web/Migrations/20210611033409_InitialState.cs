@@ -38,17 +38,18 @@ namespace Web.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Categories",
+                name: "Communities",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    IconPath = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PicturePath = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Categories", x => x.Id);
+                    table.PrimaryKey("PK_Communities", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -87,27 +88,6 @@ namespace Web.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Communities",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CategoryId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Communities", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Communities_Categories_CategoryId",
-                        column: x => x.CategoryId,
-                        principalTable: "Categories",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AspNetUsers",
                 columns: table => new
                 {
@@ -116,7 +96,13 @@ namespace Web.Migrations
                     Names = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastNames = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BirthDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Biography = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ProfilePicture = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FacebookUsername = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TwitterUsername = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    InstagramUsername = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    YoutubeUsername = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LinkedinUsername = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CompletedOnboarding = table.Column<bool>(type: "bit", nullable: false),
                     RankId = table.Column<int>(type: "int", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -421,11 +407,6 @@ namespace Web.Migrations
                 column: "PostId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Communities_CategoryId",
-                table: "Communities",
-                column: "CategoryId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_MembersOfCommunity_MembersId",
                 table: "MembersOfCommunity",
                 column: "MembersId");
@@ -492,9 +473,6 @@ namespace Web.Migrations
 
             migrationBuilder.DropTable(
                 name: "Ranks");
-
-            migrationBuilder.DropTable(
-                name: "Categories");
         }
     }
 }

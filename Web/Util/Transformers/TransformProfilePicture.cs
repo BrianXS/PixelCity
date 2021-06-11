@@ -13,9 +13,15 @@ namespace Web.Util.Transformers
             
             if(File.Exists(filePath))
                 File.Delete(filePath);
-            
-            var profilePicture = File.Create(filePath);
-            await file.CopyToAsync(profilePicture);
+
+            using (var memoryStream = new MemoryStream())
+            {
+                await file.CopyToAsync(memoryStream);
+                var resizedPicture = ResizePicture.Resize(memoryStream.ToArray(), 300, 300);
+                var profilePicture = File.Create(filePath);
+                profilePicture.Write(resizedPicture);
+                profilePicture.Close();
+            }
         }
     }
 }

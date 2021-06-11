@@ -1,0 +1,128 @@
+@model Web.Data.ViewModels.Outgoing.OutgoingUserUpdateResponse
+
+@{
+    ViewBag.Title = "Configuración";
+    Layout = "_SettingsLayout";
+}
+
+
+
+<div id="profile-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="profile-column col-10 profile-height-fix">
+                <div class="row">
+                    <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-12 settings-container">
+                        @if (TempData["Message"] != null)
+                        {
+                            <div id="toasty" class="toast align-items-center text-white @TempData["CssClass"] border-0 fade show w-100 mb-4" role="alert" aria-live="assertive" aria-atomic="true">
+                                <div class="d-flex">
+                                    <div class="toast-body fw-bold">@TempData["Message"]</div>
+                                    <button type="button" class="btn-close btn-close-white me-2 m-auto" onclick="toggleToast()"></button>
+                                </div>
+                            </div>
+                        }
+                        <form class="row" method="post" enctype="multipart/form-data">
+                            <div class="accordion" id="accordionExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                            Datos Personales
+                                        </button>
+                                    </h2>
+                                    <div style="" data-bs-parent="#accordionExample" aria-labelledby="headingOne" class="accordion-collapse collapse show" id="collapseOne">
+                                        <div class="accordion-body row">
+                                            <div class="form-group col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 offset-xxl-2 offset-xl-2 offset-lg-2 offset-md-0 offset-sm-0 offset-0">
+                                                <label asp-for="Names">Nombres</label>
+                                                <input type="text" class="form-control" asp-for="Names" placeholder="Matias" required="required">
+                                            </div>
+                                            <div class="form-group col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+                                                <label asp-for="LastNames">Apellidos</label>
+                                                <input type="text" class="form-control" asp-for="LastNames" placeholder="Rodriguez" required="required">
+                                            </div>
+                                            <div class="form-group col-xxl-8 col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 offset-xxl-2 offset-xl-2 offset-lg-2 offset-md-0 offset-sm-0 offset-0">
+                                                <label asp-for="BirthDate">Fecha de nacimiento</label>
+                                                <input type="date" class="form-control" asp-for="BirthDate" required="required">
+                                            </div>
+                                            <div class="mb-4 form-group col-xxl-8 col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 offset-xxl-2 offset-xl-2 offset-lg-2 offset-md-0 offset-sm-0 offset-0">
+                                                <label asp-for="Biography">Biografía</label>
+                                                <textarea class="d-block w-100 p-2 overflow-hidden" maxlength="190" rows="4" asp-for="Biography"></textarea>
+                                            </div>
+                                            <div class="form-group col-xxl-8 col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 offset-xxl-2 offset-xl-2 offset-lg-2 offset-md-0 offset-sm-0 offset-0">
+                                                <input type="file" accept="image/jpeg" class="form-control d-none picture-input" id="Picture" name="Picture">
+                                                <label for="Picture" id="picture-label" class="settings-picture-label">Cambie su Avatar</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            Redes Sociales
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample" style="">
+                                        <div class="accordion-body">
+                                            <div class="form-group col-xxl-8 col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 offset-xxl-2 offset-xl-2 offset-lg-2 offset-md-0 offset-sm-0 offset-0">
+                                                <label asp-for="FacebookUsername">Facebook</label>
+                                                <input type="text" class="form-control" asp-for="FacebookUsername" placeholder="MatiasRinconDev">
+                                            </div>
+                                            <div class="form-group col-xxl-8 col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 offset-xxl-2 offset-xl-2 offset-lg-2 offset-md-0 offset-sm-0 offset-0">
+                                                <label asp-for="TwitterUsername">Twitter</label>
+                                                <input type="text" class="form-control" asp-for="TwitterUsername" placeholder="RinconDev">
+                                            </div>
+                                            <div class="form-group col-xxl-8 col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 offset-xxl-2 offset-xl-2 offset-lg-2 offset-md-0 offset-sm-0 offset-0">
+                                                <label asp-for="YoutubeUsername">Youtube</label>
+                                                <input type="text" class="form-control" asp-for="YoutubeUsername" placeholder="RinconDev">
+                                            </div>
+                                            <div class="form-group col-xxl-8 col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 offset-xxl-2 offset-xl-2 offset-lg-2 offset-md-0 offset-sm-0 offset-0">
+                                                <label asp-for="LinkedinUsername">Linkedin</label>
+                                                <input type="text" class="form-control" asp-for="LinkedinUsername" placeholder="Rincon.Dev">
+                                            </div>
+                                            <div class="form-group col-xxl-8 col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 offset-xxl-2 offset-xl-2 offset-lg-2 offset-md-0 offset-sm-0 offset-0">
+                                                <label asp-for="InstagramUsername">Instagram</label>
+                                                <input type="text" class="form-control" asp-for="InstagramUsername" placeholder="SoyMatias">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-6 offset-xxl-4 offset-xl-4 offset-lg-4 offset-3 offset-md-3 offset-sm-3">
+                                <div class="d-grid mt-3">
+                                    <button type="submit" class="btn btn-clear onboarding-subscribed btn-lg">Guardar Cambios</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-4 d-none"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section CustomScripts {
+    @if (TempData["Message"] != null)
+    {
+        <script>
+        let toasty = new bootstrap.Toast(document.getElementById("toasty"), {});
+        
+        function toggleToast(){
+            toasty.hide();
+        }
+    </script>
+    }
+
+    <script>
+        document.getElementById("Picture").addEventListener("change", function(e) {
+            let labelTarget = document.getElementById("picture-label");
+            if (e.target.value !== ""){
+                labelTarget.innerText = "Imagen Seleccionada";
+                labelTarget.style.borderColor = "#6ed840"
+            } else {
+                labelTarget.innerText = "Cambie su Avatar";
+                labelTarget.style.borderColor = "lightgray"
+            }
+        });
+    </script>
+}

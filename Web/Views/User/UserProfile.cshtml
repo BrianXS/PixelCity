@@ -1,0 +1,136 @@
+@model string
+
+@{
+    Layout = "_ProfileLayout";
+    ViewData["Title"] = "Perfil de usuario";
+}
+
+<div id="profile-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="profile-column col-10">
+                <div class="row">
+                    <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-12 col-12 post-container">
+                        <div class="card mb-3 profile-card">
+                            <div class="row g-0">
+                                <div class="col-md-4 col-4">
+                                    <img src='@("/img/avatars/" + Context.Request.Path.ToString().Replace("/user/", "")+ ".jpeg")' alt="...">
+                                </div>
+                                <div class="col-md-8 col-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">BrianXS</h5>
+                                        <p class="card-text">If you want to know what I'm up to, follow me in github or 
+                                            linkedin there I will be posting updates about my website, lorem ipsum sit dolor amet.</p>
+                                        <p class="card-text">
+                                            <a class="btn btn-clear subscribe-button" href="#">Seguir</a>
+                                            <a class="btn btn-clear subscribe-button" href="#">Enviar Mensaje</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 profile-boxes-wrapper">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <p>Desarrollador</p>
+                                        <p>Rango</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <p>1337</p>
+                                        <p>Puntos</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <p>32</p>
+                                        <p>Posts</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <p>69</p>
+                                        <p>Siguiendo</p>
+                                    </div>
+                                    <div class="col-3">
+                                        <p>420</p>
+                                        <p>Seguidores</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="right-hyphen-title">
+                                <p class="text-divider"><span>Actividad reciente</span></p>
+                            </div>
+                        </div>
+                        <div class="col-12 post-list-item">
+                            <img src="/img/chat.svg" class="profile-chat-icon"><span>Comento en </span><a href="#">Gromit-MPX Dibuja en cualquier parte de tu pantalla en Linux</a>
+                        </div>
+                        <div class="col-12 post-list-item">
+                            <img src="/img/plus.svg" class="profile-chat-icon"><span>Comenzo a seguir a </span><a href="#">trollencio</a>
+                        </div>
+                        <div class="col-12 post-list-item">
+                            <img src="/img/paper.svg" class="profile-chat-icon"><span>Creo un nuevo post </span><a href="#">The Woman in the Window - Mediafire</a>
+                        </div>
+                        <div class="col-12 post-list-item">
+                            <img src="/img/plus.svg" class="profile-chat-icon"><span>Comenzo a seguir a </span><a href="#">AMLover</a>
+                        </div>
+                        <div class="col-12 post-list-item">
+                            <img src="/img/plus.svg" class="profile-chat-icon"><span>Comenzo a seguir a </span><a href="#">juanmoncada</a>
+                        </div>
+                        <div class="col-12 post-list-item">
+                            <img src="/img/chat.svg" class="profile-chat-icon"><span>Comento en </span><a href="#">Cities: Skylines – Deluxe Edition – v1.13.3-f9 + All DLCs</a>
+                        </div>
+                        <div class="col-12 post-list-item">
+                            <img src="/img/paper.svg" class="profile-chat-icon"><span>Creo un nuevo post </span><a href="#">The Woman in the Window - Mediafire</a>
+                        </div>
+                        <div class="col-12 post-list-item">
+                            <img src="/img/chat.svg" class="profile-chat-icon"><span>Comento en </span><a href="#">Gromit-MPX Dibuja en cualquier parte de tu pantalla en Linux</a>
+                        </div>
+                        <div class="col-12 post-list-item">
+                            <img src="/img/plus.svg" class="profile-chat-icon"><span>Comenzo a seguir a </span><a href="#">trollencio</a>
+                        </div>
+                        <div class="col-12 post-list-item">
+                            <img src="/img/paper.svg" class="profile-chat-icon"><span>Creo un nuevo post </span><a href="#">The Woman in the Window - Mediafire</a>
+                        </div>
+                        <div class="col-12 post-list-item">
+                            <img src="/img/plus.svg" class="profile-chat-icon"><span>Comenzo a seguir a </span><a href="#">AMLover</a>
+                        </div>
+                        <div class="col-12 post-list-item">
+                            <img src="/img/plus.svg" class="profile-chat-icon"><span>Comenzo a seguir a </span><a href="#">juanmoncada</a>
+                        </div>
+                        <div class="col-12 post-list-item">
+                            <img src="/img/chat.svg" class="profile-chat-icon"><span>Comento en </span><a href="#">Cities: Skylines – Deluxe Edition – v1.13.3-f9 + All DLCs</a>
+                        </div>
+                        <div class="col-12 post-list-item">
+                            <img src="/img/paper.svg" class="profile-chat-icon"><span>Creo un nuevo post </span><a href="#">The Woman in the Window - Mediafire</a>
+                        </div>
+                    </div>
+                    <div class="col-xxl-4 col-xl-4 col-lg-4 d-lg-block d-none">
+                        <div class="col-12">
+                            <div class="right-hyphen-title">
+                                <p class="text-divider"><span>Redes Sociales</span></p>
+                            </div>
+                        </div>
+                        <div class="row social-networks-row">
+                            <div class="col-2"><img src="/img/facebook.png" /></div>
+                            <div class="col-2"><img src="/img/twitter.png"></div>                            
+                            <div class="col-2"><img src="/img/youtube.png"></div>
+                            <div class="col-2"><img src="/img/linkedin.png"></div>                            
+                            <div class="col-2"><img src="/img/instagram.png"></div>
+                        </div>
+                        <div class="col-12">
+                            <div class="right-hyphen-title">
+                                <p class="text-divider"><span>Seguidores</span></p>
+                                <div style="height:200px"></div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="right-hyphen-title">
+                                <p class="text-divider"><span>Seguidores</span></p>
+                                <div style="height:150px"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

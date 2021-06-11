@@ -57,6 +57,11 @@ namespace Web
             {
                 options.LowercaseUrls = true;
             });
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = new PathString("/Login");
+            });
             
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddControllersWithViews().AddRazorRuntimeCompilation();

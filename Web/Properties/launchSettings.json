@@ -15,7 +15,7 @@
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "TEMPORAL_KEY": "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"
+        "TEMPORAL_KEY": ""
       }
     }
   }

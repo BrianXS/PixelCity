@@ -7,6 +7,8 @@ CONTENTS
 4. Login & Register 
 5. Index
 6. Onboarding
+7. Profile
+8. Settings
 ***********************************************/
 
 /**********************************************
@@ -63,6 +65,36 @@ body {
     border-right: 1px solid lightgray;
     border-bottom: 1px solid lightgray;
     height: 700px;
+}
+
+.danger-button {
+    background: linear-gradient(
+            180deg
+            , #e64f4f 0%, #d03737 100%);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e64f4f), to(#d03737));
+    border-top: 1px solid #af4040;
+    border-left: 1px solid #a32e2e;
+    border-right: 1px solid #a32e2e;
+    border-bottom: 1px solid #9a2020;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+    box-shadow: inset 0 1px 0 0 #eb7272, 0 1px 2px 0 #b3b3b3;
+    letter-spacing: 0.6px;
+    color: white;
+}
+
+
+.danger-button:active {
+    background: linear-gradient(180deg, #d03737 5%, #e64f4f 90%, #d03737 100%);
+    color: white;
+}
+
+.danger-button:hover {
+    color: white;
+}
+.danger-button:focus {
+    box-shadow: none;
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -388,6 +420,7 @@ body {
     #upper-menu  > .container,
     #lower-menu  > .container,
     #sub-menu >  .container,
+    #profile-wrapper >  .container,
     #index-wrapper > .container {
         max-width: 100%;
     }
@@ -482,6 +515,11 @@ body {
     background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#78da40), to(#45b31d));
 }
 
+
+#register-card .btn-success:active {
+    background: linear-gradient(180deg, #5ed037 5%, #88E64F 90%, #5ed037 100%);
+}
+
 #register-card ul {
     text-align: left;
 }
@@ -521,6 +559,7 @@ body {
     font-weight: 600;
     font-size: 14px;
     letter-spacing: 0.6px;
+    cursor: pointer;
 }
 
 #register-card > div > div > form {
@@ -811,4 +850,330 @@ body {
 #register-card > div > #onboarding-main-div-fix {
     padding-top: 3.8rem !important;
     padding-bottom: 3rem !important
+}
+
+.subscribe-button {
+    background: linear-gradient(180deg, #fcfcfc, #eeeeee) padding-box;
+    border-top: 1px solid #cccccc;
+    border-right: 1px solid #c6c6c6;
+    border-bottom: 1px solid #aaaaaa;
+    border-left: 1px solid #c6c6c6;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #000;
+    letter-spacing: 0.6px;
+}
+
+.subscribe-button:hover {
+    font-weight: 600;
+    color: #000; 
+    border-top: 1px solid #cccccc;
+    border-right: 1px solid #c6c6c6;
+    border-bottom: 1px solid #aaaaaa;
+    border-left: 1px solid #c6c6c6;
+}
+
+.subscribe-button:focus {
+    color: #000;
+    box-shadow: none;
+}
+
+.subscribe-button:active {
+    background: linear-gradient(180deg, #eeeeee 5%, #fcfcfc 90%, #eeeeee) padding-box;
+    font-weight: 600;
+    color: #000;
+    border-top: 1px solid #cccccc;
+    border-right: 1px solid #c6c6c6;
+    border-bottom: 1px solid #aaaaaa;
+    border-left: 1px solid #c6c6c6;
+    box-shadow: none;
+}
+
+.row > .col-4 > .onboarding-card {
+    margin-top: 20px;
+}
+
+.onboarding-card {
+    text-align: center;
+    padding-left: unset;
+    padding-right: unset;
+}
+
+.onboarding-card .card-title {
+    font-weight: 600;
+    font-size: 14px;
+    height: 18px;
+    overflow: hidden;
+}
+
+.onboarding-card .card-img-top {
+    width: 100%;
+    min-height: 100px;
+}
+
+.onboarding-card .card-body {
+    padding: 1rem 0.5rem;
+}
+
+.onboarding-p-fix {
+    margin-bottom: 0px;
+}
+
+#register-card > div > #subscribe-main-div-fix {
+    padding-top: 2.8rem !important;
+    padding-bottom: 3rem !important
+}
+
+.onboarding-subscribed {
+    background: linear-gradient(180deg, #88e64f 0%, #5ed037 100%);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#88e64f), to(#5ed037));
+    border-top: 1px solid #6caf40;
+    border-left: 1px solid #53a32e;
+    border-right: 1px solid #53a32e;
+    border-bottom: 1px solid #3e9a20;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+    box-shadow: inset 0 1px 0 0 #a3eb72, 0 1px 2px 0 #b3b3b3;
+    letter-spacing: 0.6px;
+    color: white;
+}
+
+.onboarding-subscribed:active {
+    background: linear-gradient(180deg, #5ed037 5%, #88E64F 90%, #5ed037 100%);
+    color: white;
+}
+
+.onboarding-subscribed:hover {
+    color: white;
+}
+.onboarding-subscribed:focus {
+    box-shadow: none;
+}
+
+/**************************
+7. Profile
+***************************/
+
+#profile-wrapper {
+    
+}
+
+.profile-column {
+    background: white;
+    margin-left: 1.9%;
+    width: 94.6%;
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    height: 700px;
+}
+
+.profile-column > .row > div:first-child {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.profile-card {
+    border: unset;
+    border-bottom: 1px solid lightgray;
+    border-radius: 0px;
+    background: url(https://localhost:5001/img/profilebg.gif) repeat-x scroll left bottom white;
+    margin-bottom: 0px !important;
+}
+.profile-card img {
+    width: 150px;
+}
+
+.profile-card > .row > div:first-child {
+    padding: 1.1em;
+}
+
+.profile-card .card-title {
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.profile-card .card-body {
+    padding-left: 0rem;
+    padding-right: 0.5rem;
+}
+
+
+.profile-card > .row > .col-md-8 > .card-body > p.card-text:nth-child(2) {
+    font-size: 14px !important;
+    max-height: 66px;
+    color: #333333;
+    overflow: hidden;
+}
+
+.profile-boxes-wrapper > .container {
+    padding: 12px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.profile-boxes-wrapper > .container > .row > div {
+    min-height: 55px;
+    border-left: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    background: url(https://localhost:5001/img/profilebg.gif) repeat-x scroll left bottom white;
+    text-align: center;
+}
+
+.profile-boxes-wrapper > .container > .row > div:first-child {
+    border-left: unset;
+}
+
+.profile-boxes-wrapper > .container > .row > div > p:first-child {
+    font-weight: 600;
+    font-size: 15px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+.profile-boxes-wrapper > .container > .row > div > p:last-child {
+    font-weight: 400;
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 5px;
+}
+
+.profile-column .right-hyphen-title > .text-divider {
+    padding-left: 10px;
+    margin-bottom: 15px;
+}
+
+.profile-chat-icon {
+    width: 15px;
+    margin-top: -4px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.profile-column .post-container > .post-list-item > span {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.social-networks-row > div:first-child {
+    margin-left: 9px;
+}
+
+/* =====================
+8. Settings
+ =======================*/
+
+.settings-container {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+
+.settings-container .right-hyphen-title > .text-divider {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.settings-container label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.6px;
+    cursor: pointer;
+}
+
+.settings-container input {
+    padding: 10px 10px;
+    margin-bottom: 15px;
+}
+
+.profile-height-fix {
+    height: auto !important;
+    padding-top: 20px;
+    padding-bottom: 22px;
+}
+
+.profile-height-fix .accordion-button {
+    font-weight: 600;
+    letter-spacing: 0.6px;
+}
+
+.profile-height-fix .accordion-button:not(.collapsed) { 
+    color: #067cb4;
+    background-color: #f0eeee;
+}
+
+.settings-container h3 {
+    font-size: 25px;
+    text-align: center;
+}
+
+.settings-container textarea {
+    resize: none;
+    border: 1px solid lightgray;
+}
+
+.settings-picture-label {
+    border: 2px dashed lightgray;
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    text-align: center;
+}
+
+.custom-settings-alert-success {
+    background: #72da42;
+}
+
+/* Small devices */
+@media (min-width: 576px) and (max-width: 767px) {
+    .profile-boxes-wrapper > .container {
+        max-width: 100%;
+    }
+    
+    .profile-column {
+        margin-left: 1.5%;
+        width: 97%;
+    }
+    
+    #profile-wrapper .post-container {
+        border-right: unset !important;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .profile-column {
+        margin-left: 1.5%;
+        width: 97%;
+    }
+
+    #profile-wrapper .post-container {
+        border-right: unset !important;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .profile-column {
+        margin-left: 9.5%;
+        width: 81.6%;
+    }
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .profile-column {
+        margin-left: 9.3%;
+    }
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+    .profile-column {    
+        margin-left: 17.5%;
+        width: 65%;
+    }
 }

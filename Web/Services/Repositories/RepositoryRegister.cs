@@ -9,6 +9,7 @@ namespace Web.Services.Repositories
         public static void Init(IServiceCollection services)
         {
             services.AddScoped<IPostRepository, PostRepository>();
+            services.AddScoped<ICommunityRepository, CommunityRepository>();
         }
     }
 }

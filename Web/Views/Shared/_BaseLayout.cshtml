@@ -42,8 +42,8 @@
                           <li class="page-item">
                               <a class="page-link" href="#" id="personal-pill" data-bs-auto-close="outside" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Context.User.Identity.Name</a>
                               <ul class="dropdown-menu dropdown-menu-end notification-dropdown" id="last-header-item" aria-labelledby="personal-pill">
-                                <li><a class="dropdown-item" href="#">Perfil</a></li>
-                                <li><a class="dropdown-item" href="#">Configuracion</a></li>
+                                <li><a class="dropdown-item" asp-controller="User" asp-action="UserProfile" asp-route-username="@Context.User.Identity.Name">Perfil</a></li>
+                                <li><a class="dropdown-item" asp-controller="Settings" asp-action="UserSettings">Configuracion</a></li>
                                 <li>
                                     <form asp-controller="Authentication" asp-action="Logout">
                                         <button class="dropdown-item">Salir</button>

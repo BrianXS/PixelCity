@@ -1,0 +1,45 @@
+@model System.Collections.Generic.List<Web.Data.Entities.Community>
+
+@{
+    ViewBag.Title = "Subscribete";
+    Layout = "_OnboardingLayout";
+}
+
+<div id="register-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-xxl-8 col-xl-10 col-lg-10 offset-xxl-2 offset-xl-1 offset-lg-1" id="register-card">
+                <div class="row">
+                    <div class="col-xxl-8 col-xl-8 col-lg-7 p-5" id="subscribe-main-div-fix">
+                        <h3><strong>Comunidades destacadas!</strong></h3>
+                        <p class="text-secondary onboarding-p-fix">Por favor, subscribete a nuestras comunidades.</p>
+                        <div class="row">
+                            @foreach (var item in Model)
+                            {
+                                <div class="col-4">
+                                    <div class="card onboarding-card">
+                                        <img src="@item.PicturePath" class="card-img-top img-fluid" alt="@item.Name">
+                                        <div class="card-body">
+                                            <h5 class="card-title">@item.Name</h5>
+                                            <button class="btn btn-clear subscribe-button" onclick="renderSubscription(@item.Id, this)">Seguir</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <div class="d-grid"><br><a asp-action="Index" asp-controller="Home" class="btn btn-clear onboarding-subscribed">Continuar</a></div>
+                    </div>
+                    <div class="col-xxl-4 col-xl-4 col-lg-5 d-none d-lg-block onboarding-sidebar">
+                        <img src="/img/bgreg.png" alt="">
+                        <p class="text-divider"><span>Codigo de Conducta</span></p>
+                        <ul>
+                            <li><a href="#">Están prohibidos los acosos a cualquier miembro del grupo.</a></li>
+                            <li><a href="#">Está prohibido ofender por sexo, raza, religión, situación económica, preferencia sexual o política.</a></li>
+                            <li><a href="#">Está prohibido el spam y contenido ponográfico o material que esté relacionado con ello.</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

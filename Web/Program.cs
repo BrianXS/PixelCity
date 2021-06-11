@@ -32,6 +32,7 @@ namespace Web
             using var scope = host.Services.CreateScope();
             var dbContext = scope.ServiceProvider.GetRequiredService<PixelCityDbContext>();
             SeedRanks.Init(dbContext);
+            SeedCommunities.Init(dbContext);
         }
     }
 }

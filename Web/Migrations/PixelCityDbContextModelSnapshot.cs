@@ -215,24 +215,6 @@ namespace Web.Migrations
                     b.ToTable("Badges");
                 });
 
-            modelBuilder.Entity("Web.Data.Entities.Category", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("IconPath")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Categories");
-                });
-
             modelBuilder.Entity("Web.Data.Entities.Comment", b =>
                 {
                     b.Property<long>("Id")
@@ -271,18 +253,16 @@ namespace Web.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.Property<string>("PicturePath")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasIndex("CategoryId");
+                    b.HasKey("Id");
 
                     b.ToTable("Communities");
                 });
@@ -349,6 +329,9 @@ namespace Web.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<string>("Biography")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
 
@@ -366,7 +349,16 @@ namespace Web.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<string>("FacebookUsername")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("InstagramUsername")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("LastNames")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LinkedinUsername")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
@@ -404,12 +396,18 @@ namespace Web.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("TwitterUsername")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("YoutubeUsername")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -539,17 +537,6 @@ namespace Web.Migrations
                     b.Navigation("Commenter");
 
                     b.Navigation("Post");
-                });
-
-            modelBuilder.Entity("Web.Data.Entities.Community", b =>
-                {
-                    b.HasOne("Web.Data.Entities.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("Web.Data.Entities.Post", b =>
