@@ -743,8 +743,14 @@ body {
 }
 
 
-.statistics-container > div:last-child > .col-12 > a:last-child {
+.statistics-container > div:last-child > .col-12 > a:nth-child(2) {
     color: #067cb4;
+    font-weight: 600;
+}
+
+.statistics-container > div:last-child > .col-12 > span {
+    color: #69900f;
+    font-size: 14px;
     font-weight: 600;
 }
 
@@ -1127,6 +1133,7 @@ body {
     background: #72da42;
 }
 
+
 /* Small devices */
 @media (min-width: 576px) and (max-width: 767px) {
     .profile-boxes-wrapper > .container {
@@ -1176,4 +1183,44 @@ body {
         margin-left: 17.5%;
         width: 65%;
     }
+}
+
+
+/*====================
+9. Comunidades
+=====================*/
+
+.sticky-community-header {
+    background: -webkit-gradient( linear, left bottom, left top, color-stop(0.22, rgb(249,236,183)), color-stop(1, rgb(251,243,207)) );
+    border-bottom: 1px solid #f0d35b;
+    color: #b59130;
+}
+
+.sticky-community-body {
+    background: #fcf9f0;
+    color: #755a13;
+}
+
+.community-list-item {
+    height: 63px !important;
+}
+
+.community-list-item > span:nth-child(4) {
+    margin-left: 1.8rem !important;
+}
+
+.community-list-item > span {
+    color: #889;
+    font-size: 14px;
+}
+
+
+.community-list-item > a:nth-child(5),
+.community-list-item > a:nth-child(7){
+    color: #889;
+    font-weight: 400;
+}
+
+.community-text-fixer {
+    font-size: 16px;
 }

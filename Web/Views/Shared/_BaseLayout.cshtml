@@ -1,3 +1,4 @@
+@using Web.Util.Transformers
 <!DOCTYPE html>
 <html>
 <head>
@@ -84,8 +85,8 @@
     <div class="container">
         <div class="row">
             <nav class="col-xxl-8 col-xl-10 col-lg-10 col-sm-12 offset-xxl-2 offset-xl-1 offset-lg-1 offset-sm-0">
-                <a class="active" href="#"><i class="bi bi-house-door-fill"></i></a>
-                <a href="#">Comunidades</a>
+                <a asp-action="Index" asp-controller="Home" class="@Html.Check("Home", "Index")"><i class="bi bi-house-door-fill"></i></a>
+                <a asp-action="Index" asp-controller="Community" class="@Html.Check("Community", "Index")">Comunidades</a>
                 <a href="#">TOPs</a>
                 @if (Context.User.Identity.IsAuthenticated && Context.User.IsInRole("Admin"))
                 {
@@ -99,12 +100,34 @@
     <div class="container">
         <div class="row">
             <div class="col-xxl-10 col-xl-10 col-lg-10 col-sm-12 col-12 custom-offset">
-                <nav>
-                    <a class="active" href="#">Inicio</a>
-                    <a href="#">Novatos</a>
-                    <a href="#">Intermedios</a>
-                    <a href="#">Veteranos</a>
-                </nav>
+                @if (Html.IsTheCurrentControllerEqualTo("Home"))
+                {
+                    <nav>
+                        <a class="active" href="#">Inicio</a>
+                        <a href="#">Novatos</a>
+                        <a href="#">Intermedios</a>
+                        <a href="#">Veteranos</a>
+                    </nav>   
+                }
+                
+                @if (Html.IsTheCurrentControllerEqualTo("Community"))
+                {
+                    <nav>
+                        <a class="active" href="#">Inicio</a>
+                        <a href="#">Mis Comunidades</a>
+                        <a href="#">Aleatorio</a>
+                    </nav>   
+                }
+                
+                @if (Html.IsTheCurrentControllerEqualTo("User"))
+                {
+                    <nav>
+                        <a class="active" href="#">Actividad</a>
+                        <a href="#">Posts</a>
+                        <a href="#">Comentarios</a>
+                        <a href="#">Comunidades</a>
+                    </nav>
+                }
             </div>
         </div>
     </div>

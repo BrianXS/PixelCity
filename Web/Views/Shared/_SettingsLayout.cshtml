@@ -86,7 +86,7 @@
         <div class="row">
             <nav class="col-xxl-8 col-xl-10 col-lg-10 col-sm-12 offset-xxl-2 offset-xl-1 offset-lg-1 offset-sm-0">
                 <a asp-controller="Home" asp-action="Index"><i class="bi bi-house-door-fill"></i></a>
-                <a href="#">Comunidades</a>
+                <a asp-action="Index" asp-controller="Community">Comunidades</a>
                 <a href="#">TOPs</a>
                 @if (Context.User.Identity.IsAuthenticated && Context.User.IsInRole("Admin"))
                 {
