@@ -9,5 +9,11 @@ namespace Web.Util.Transformers
             var currentControllerName = htmlHelper.ViewContext.RouteData.Values["controller"]?.ToString();
             return currentControllerName == controllerName;
         } 
+        
+        public static string IsThisControllerActive(this IHtmlHelper htmlHelper, string controllerName)
+        {
+            var currentControllerName = htmlHelper.ViewContext.RouteData.Values["controller"]?.ToString();
+            return currentControllerName == controllerName ? "active " : " ";
+        } 
     }
 }

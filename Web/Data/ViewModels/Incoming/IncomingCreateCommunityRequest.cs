@@ -1,4 +1,3 @@
-using System;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Http;
 using Web.Data.ViewModels.AbstractViewModels;
@@ -6,17 +5,17 @@ using Web.Util.Attributes;
 
 namespace Web.Data.ViewModels.Incoming
 {
-    public class IncomingOnboardingRequest : IPictureVM
+    public class IncomingCreateCommunityRequest : IPictureVM
     {
         [Required]
-        public string Names { get; set; }
+        public string Name { get; set; }
         
         [Required]
-        public string Lastnames { get; set; }
+        public string Url { get; set; }
         
         [Required]
-        public DateTime BirthDate { get; set; }
-        
+        public string Description { get; set; }
+
         [Required, VerifyContentType]
         public IFormFile Picture { get; set; }
     }

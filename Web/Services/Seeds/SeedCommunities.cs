@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Web.Data.Entities;
 using Web.Services.Database;
 
@@ -65,9 +66,12 @@ namespace Web.Services.Seeds
                     PicturePath = "/img/communities/games.jpg"
                 }
             };
-            
-            dbContext.Communities.AddRange(defaultCommunities);
-            dbContext.SaveChanges();
+
+            if (!dbContext.Communities.Any())
+            {
+                dbContext.Communities.AddRange(defaultCommunities);
+                dbContext.SaveChanges();
+            }
         }
     }
 }

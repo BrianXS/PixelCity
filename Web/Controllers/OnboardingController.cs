@@ -49,7 +49,7 @@ namespace Web.Controllers
 
             _mapper.Map(data, user);
             
-            await TransformProfilePicture.StoreProfilePicture(data.ProfilePicture, user.UserName);
+            await TransformProfilePicture.StoreProfilePicture(data.Picture, user.UserName);
             var result = await _userManager.UpdateAsync(user);
             
             return result.Succeeded ? 

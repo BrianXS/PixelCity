@@ -15,6 +15,10 @@ namespace Web.Services.Database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Community>()
+                .HasIndex(e => e.Url)
+                .IsUnique();
+            
+            modelBuilder.Entity<Community>()
                 .HasMany(p => p.Members)
                 .WithMany(p => p.MemberCommunity)
                 .UsingEntity(e => e.ToTable("MembersOfCommunity"));

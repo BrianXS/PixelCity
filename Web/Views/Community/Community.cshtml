@@ -1,0 +1,184 @@
+@model string
+
+@{
+    ViewBag.Title = "Comunidad";
+    Layout = "_BaseLayout";
+}
+
+
+<div id="index-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="custom-column create-community-wrapper-fix col-10">
+                <div class="row">
+                    <div class="col-xxl-8 col-xl-8 col-lg-8 pt-3 create-community-container">
+                        <div class="card mb-3 community-page-header">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="/img/communities/riders.jpg" class="img-fluid p-3" alt="">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Riders Of The Storm</h5>
+                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                        <p class="card-text d-inline-block mb-0">
+                                            <!-- UNIRSE -->
+                                            <a class="btn btn-clear subscribe-button" href="#">ABANDONAR</a>
+                                        </p>
+                                        <ul class="list-group d-inline-block float-end text-end ms-3 community-page-stats">
+                                            <li class="list-group-item bg-transparent p-0 border-0 fw-bold">263</li>
+                                            <li class="list-group-item bg-transparent p-0 border-0">Miembros</li>
+                                        </ul>
+                                        <ul class="list-group d-inline-block float-end text-end pe-2 community-page-stats">
+                                            <li class="list-group-item bg-transparent p-0 border-0 fw-bold">46</li>
+                                            <li class="list-group-item bg-transparent p-0 border-0">Temas</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card community-wrapper-for-topics">
+                            <div class="card-header p-3 fw-bold">
+                                Anuncios
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item p-3 container">
+                                    <div class="row">
+                                        <a class="col-10" href="#">Reglas del grupo y aclaraciones</a>
+                                        <div class="col-2 row p-0">
+                                            <span class="col-6 p-0 text-danger"><i class="bi bi-chat-fill"></i> 0</span>
+                                            <span class="col-6 p-0 text-danger"><i class="bi bi-heart-fill"></i> 0</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item p-3 container">
+                                    <div class="row">
+                                        <a class="col-10" href="#">Reglas del grupo y aclaraciones</a>
+                                        <div class="col-2 row p-0">
+                                            <span class="col-6 p-0 text-danger"><i class="bi bi-chat-fill"></i> 0</span>
+                                            <span class="col-6 p-0 text-danger"><i class="bi bi-heart-fill"></i> 0</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <br>
+                        <div class="card community-wrapper-for-topics mb-4">
+                            <div class="card-header p-3 fw-bold">
+                                <span class="float-start mt-1">Posts</span>
+                                <a class="btn btn-clear onboarding-subscribed float-end" href="/comunidades/postinga/new">Nuevo Post</a>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item p-3 container">
+                                    <div class="row">
+                                        <a class="col-10" href="#">Cree un tema para PixelCity y te lo muestro</a>
+                                        <div class="col-2 row p-0">
+                                            <span class="col-6 p-0"><i class="bi bi-chat-fill"></i> 1</span>
+                                            <span class="col-6 p-0"><i class="bi bi-heart-fill"></i> 3</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item p-3 container">
+                                    <div class="row">
+                                        <a class="col-10" href="#">APIs para diferentes lenguajes</a>
+                                        <div class="col-2 row p-0">
+                                            <span class="col-6 p-0"><i class="bi bi-chat-fill"></i> 4</span>
+                                            <span class="col-6 p-0"><i class="bi bi-heart-fill"></i> 10</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item p-3 container">
+                                    <div class="row">
+                                        <a class="col-10" href="#">Nuevo procesador de pagos para toda Colombia</a>
+                                        <div class="col-2 row p-0">
+                                            <span class="col-6 p-0"><i class="bi bi-chat-fill"></i> 5</span>
+                                            <span class="col-6 p-0"><i class="bi bi-heart-fill"></i> 0</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item p-3 container">
+                                    <div class="row">
+                                        <a class="col-10" href="#">Tutorial C# desde cero hasta profesional</a>
+                                        <div class="col-2 row p-0">
+                                            <span class="col-6 p-0"><i class="bi bi-chat-fill"></i> 0</span>
+                                            <span class="col-6 p-0"><i class="bi bi-heart-fill"></i> 0</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item p-3 container">
+                                    <div class="row">
+                                        <a class="col-10" href="#">Como leer papeles academicos</a>
+                                        <div class="col-2 row p-0">
+                                            <span class="col-6 p-0"><i class="bi bi-chat-fill"></i> 4</span>
+                                            <span class="col-6 p-0"><i class="bi bi-heart-fill"></i> 6</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item p-3 container">
+                                    <div class="row">
+                                        <a class="col-10" href="#">Las mejores empresas para trabajar remoto</a>
+                                        <div class="col-2 row p-0">
+                                            <span class="col-6 p-0"><i class="bi bi-chat-fill"></i> 1</span>
+                                            <span class="col-6 p-0"><i class="bi bi-heart-fill"></i> 1</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item p-3 container">
+                                    <div class="row">
+                                        <a class="col-10" href="#">Como dejar la etapa de novato</a>
+                                        <div class="col-2 row p-0">
+                                            <span class="col-6 p-0"><i class="bi bi-chat-fill"></i> 2</span>
+                                            <span class="col-6 p-0"><i class="bi bi-heart-fill"></i> 1</span>
+                                        </div>
+                                    </div>
+                                </li>                                
+                                <li class="list-group-item p-3 container">
+                                    <div class="row">
+                                        <a class="col-10" href="#">Bootcamp de JavaScript</a>
+                                        <div class="col-2 row p-0">
+                                            <span class="col-6 p-0"><i class="bi bi-chat-fill"></i> 0</span>
+                                            <span class="col-6 p-0"><i class="bi bi-heart-fill"></i> 0</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item p-3 container">
+                                    <div class="row">
+                                        <a class="col-10" href="#">Como ser un desarrollador exitoso</a>
+                                        <div class="col-2 row p-0">
+                                            <span class="col-6 p-0"><i class="bi bi-chat-fill"></i> 100</span>
+                                            <span class="col-6 p-0"><i class="bi bi-heart-fill"></i> 1K</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item p-3 container">
+                                    <div class="row">
+                                        <a class="col-10" href="#">Rust la alternativa a C facil y sin errores</a>
+                                        <div class="col-2 row p-0">
+                                            <span class="col-6 p-0"><i class="bi bi-chat-fill"></i> 72</span>
+                                            <span class="col-6 p-0"><i class="bi bi-heart-fill"></i> 166</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                    <div class="col-xxl-4 col-xl-4 col-lg-4 d-none d-lg-block create-community-sidebar">
+                        <div class="right-hyphen-title">
+                            <p class="text-divider"><span>Staff de la Comunidad</span></p>
+                            <div style="height:50px"></div>
+                        </div>
+                        <div class="right-hyphen-title">
+                            <p class="text-divider"><span>Ultimos Miembros</span></p>
+                            <div style="height:200px"></div>
+                        </div>
+                        <div class="right-hyphen-title">
+                            <p class="text-divider"><span>Ultimos Comentarios</span></p>
+                            <div style="height:200px"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,11 +1,12 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Http;
+using Web.Data.ViewModels.AbstractViewModels;
 using Web.Util.Attributes;
 
 namespace Web.Data.ViewModels.Incoming
 {
-    public class IncomingUserUpdateRequest
+    public class IncomingUserUpdateRequest : IPictureVM
     {
         [Required]
         public string Names { get; set; }

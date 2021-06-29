@@ -8,6 +8,6 @@ namespace Web.Data.ViewModels.Outgoing
         public string Names { get; set; }
         public string Lastnames { get; set; }
         public DateTime BirthDate { get; set; }
-        public string ProfilePicture { get; set; }
+        public string Picture { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 using AutoMapper;
+using Web.Data.Entities;
 using Web.Data.ViewModels.Incoming;
 using Web.Data.ViewModels.Outgoing;
 
@@ -12,6 +13,14 @@ namespace Web.Data.Profiles
             CreateMap<IncomingRegistrationData, OutgoingRegistrationData>();
 
             CreateMap<IncomingPasswordRecoveryDataFromEmail, OutgoingPasswordRecoveryData>();
+        }
+    }
+    
+    public class CommunityProfiles : Profile
+    {
+        public CommunityProfiles()
+        {
+            CreateMap<IncomingCreateCommunityRequest, Community>();
         }
     }
 }

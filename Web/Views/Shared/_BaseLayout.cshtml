@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 </head>
 <body>
 <div id="upper-menu">
@@ -85,8 +86,8 @@
     <div class="container">
         <div class="row">
             <nav class="col-xxl-8 col-xl-10 col-lg-10 col-sm-12 offset-xxl-2 offset-xl-1 offset-lg-1 offset-sm-0">
-                <a asp-action="Index" asp-controller="Home" class="@Html.Check("Home", "Index")"><i class="bi bi-house-door-fill"></i></a>
-                <a asp-action="Index" asp-controller="Community" class="@Html.Check("Community", "Index")">Comunidades</a>
+                <a asp-action="Index" asp-controller="Home" class="@Html.IsThisControllerActive("Home")"><i class="bi bi-house-door-fill"></i></a>
+                <a asp-action="Index" asp-controller="Community" class="@Html.IsThisControllerActive("Community")">Comunidades</a>
                 <a href="#">TOPs</a>
                 @if (Context.User.Identity.IsAuthenticated && Context.User.IsInRole("Admin"))
                 {
@@ -103,7 +104,7 @@
                 @if (Html.IsTheCurrentControllerEqualTo("Home"))
                 {
                     <nav>
-                        <a class="active" href="#">Inicio</a>
+                        <a class="@Html.Check("Home", "Index")" asp-action="Index" asp-controller="Home">Inicio</a>
                         <a href="#">Novatos</a>
                         <a href="#">Intermedios</a>
                         <a href="#">Veteranos</a>
@@ -113,7 +114,7 @@
                 @if (Html.IsTheCurrentControllerEqualTo("Community"))
                 {
                     <nav>
-                        <a class="active" href="#">Inicio</a>
+                        <a class="@Html.Check("Community", "Index")" asp-action="Index" asp-controller="Community">Inicio</a>
                         <a href="#">Mis Comunidades</a>
                         <a href="#">Aleatorio</a>
                     </nav>   
@@ -137,6 +138,7 @@
 <br/>
 <script src="/js/bootstrap.bundle.js"></script>
 <script src="/js/sitescripts.js"></script>
+@RenderSection("scripts", required:false)
 </body>
 </html>
 

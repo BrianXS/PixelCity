@@ -1,0 +1,97 @@
+@model Web.Data.ViewModels.Outgoing.OutgoingCreateCommunity
+
+@{
+    ViewBag.Title = "Crea tu propia comunidad";
+    Layout = "_BaseLayout";
+}
+
+
+<div id="index-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="custom-column create-community-wrapper-fix col-10">
+                <div class="row">
+                    <div class="col-xxl-8 col-xl-8 col-lg-8 pt-4 p-5 create-community-container">
+                        @if (TempData["Message"] != null)
+                        {
+                            <div id="toasty" class="toast align-items-center text-white @TempData["CssClass"] border-0 fade show w-100 mb-4" role="alert" aria-live="assertive" aria-atomic="true">
+                                <div class="d-flex">
+                                    <div class="toast-body fw-bold">@TempData["Message"]</div>
+                                    <button type="button" class="btn-close btn-close-white me-2 m-auto" onclick="toggleToast()"></button>
+                                </div>
+                            </div>
+                        }
+                        <form enctype="multipart/form-data" asp-action="CreateProcessor" asp-controller="Community" method="post" class="row">
+                            <h4 class="col-12"><strong>Crea una comunidad</strong></h4>
+                            <p class="text-secondary mb-4">Por favor, toma un momento para crear tu propio espacio.</p>
+                            <div class="form-group col-12">
+                                <label asp-for="Name">Nombre de la comunidad</label>
+                                <input type="text" class="form-control" placeholder="Comunidad WTF" maxlength="26" required="required" asp-for="Name">
+                            </div>
+                            <div class="form-group col-12">
+                                <label asp-for="Url">URL de la comunidad</label>
+                                <input type="text" class="form-control" placeholder="WTF" maxlength="15" required="required" asp-for="Url">
+                            </div>
+                            <div class="form-group col-12">
+                                <label asp-for="Description">Descripción de la comunidad</label>
+                                <textarea class="d-block w-100 p-3 overflow-hidden" 
+                                          maxlength="190" rows="4" asp-for="Description"
+                                          placeholder="Toda la información relevante al tema la pueden encontrar acá."></textarea>
+                            </div>
+                            <div class="form-group col-12 mt-4">
+                                <input type="file" accept="image/jpeg" required class="form-control d-none picture-input" asp-for="Picture">
+                                <label asp-for="Picture" id="picture-label" class="settings-picture-label">Seleccione la foto de su comunidad</label>
+                            </div>
+                            <div class="d-grid mt-3">
+                                <button type="submit" class="btn btn-clear onboarding-subscribed btn-lg">Crear Comunidad</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-xxl-4 col-xl-4 col-lg-4 d-none d-lg-block create-community-sidebar">
+                        <img src="/img/bgreg.png" alt="" class="mx-auto d-block mt-3">
+                        <p class="text-divider"><span >¿Que Puedes Hacer?</span></p>
+                        <ul>
+                            <li>Crear y compartir contenido.</li>
+                            <li>Hacer nuevos amigos.</li>
+                            <li>Compartir experiencias nuevas.</li>
+                        </ul>
+                        <p class="text-divider"><span>¿Que <strong>NO</strong> Puedes Hacer?</span></p>
+                        <ul>
+                            <li>Publicar imagenes de menores.</li>
+                            <li>Hacer apologia al delito.</li>
+                            <li>Crear contenido porno o gore.</li>                            
+                            <li>Hacer spam.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    @if (TempData["Message"] != null)
+    {
+    <script>
+        let toasty = new bootstrap.Toast(document.getElementById("toasty"), {});
+        
+        function toggleToast(){
+            toasty.hide();
+        }
+    </script>
+    }
+    
+    <script>
+        document.getElementById("Picture").addEventListener("change", function(e) {
+            let labelTarget = document.getElementById("picture-label");
+            if (e.target.value !== ""){
+                labelTarget.innerText = "Imagen Seleccionada";
+                labelTarget.style.borderColor = "#6ed840"
+            } else {
+                labelTarget.innerText = "Cambie su Avatar";
+                labelTarget.style.borderColor = "lightgray"
+            }
+        });
+    </script>
+}

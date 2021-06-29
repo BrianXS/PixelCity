@@ -1,0 +1,86 @@
+@model string
+
+@{
+    ViewBag.Title = "Comunidad";
+    Layout = "_BaseLayout";
+}
+
+<div id="index-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="custom-column create-community-wrapper-fix col-10">
+                <div class="row">
+                    <div class="col-xxl-8 col-xl-8 col-lg-8 pt-4 p-5 create-community-container">
+                        @if (TempData["Message"] != null)
+                        {
+                            <div id="toasty" class="toast align-items-center text-white @TempData["CssClass"] border-0 fade show w-100 mb-4" role="alert" aria-live="assertive" aria-atomic="true">
+                                <div class="d-flex">
+                                    <div class="toast-body fw-bold">@TempData["Message"]</div>
+                                    <button type="button" class="btn-close btn-close-white me-2 m-auto" onclick="toggleToast()"></button>
+                                </div>
+                            </div>
+                        }
+                        <form enctype="multipart/form-data" asp-action="CreateProcessor" asp-controller="Community" method="post" class="row">
+                            <div class="form-group col-12">
+                                <label for="Name">Titulo de la publicación</label>
+                                <input type="text" class="form-control" placeholder="Como configurar una maquina con ubuntu" maxlength="48" required="required" for="Name">
+                            </div>
+                            <div class="form-group col-12 mb-2">
+                                <label for="Description">Contenido de la publicación</label>
+                                <div class="d-block w-100 p-3" id="Description"></div>
+                            </div>
+                            <div class="d-grid mt-4">
+                                <button type="submit" class="btn btn-clear onboarding-subscribed btn-lg">Crear Post</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-xxl-4 col-xl-4 col-lg-4 d-none d-lg-block create-community-sidebar">
+                        <img src="/img/bgreg.png" alt="" class="mx-auto d-block mt-3">
+                        <p class="text-divider"><span >¿Que Puedes Hacer?</span></p>
+                        <ul>
+                            <li>Crear posts informativos.</li>
+                            <li>Crear posts sobre un hobby.</li>
+                            <li>Compartir experiencias pasadas.</li>
+                        </ul>
+                        <p class="text-divider"><span>¿Que <strong>NO</strong> Puedes Hacer?</span></p>
+                        <ul>
+                            <li>Publicar imagenes de menores.</li>
+                            <li>Hacer apologia al delito.</li>
+                            <li>Crear contenido porno o gore.</li>                            
+                            <li>Hacer spam.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script>
+      let toolbarOptions = [{ 'header': [1, 2, 3, 4, 5, 6, false] }, 
+                            'image', 'link', 
+                            'bold', 'italic', 'underline', 'strike', 'blockquote', 'code-block', 
+                            { 'list': 'ordered'}, { 'list': 'bullet' }];
+      
+      let quill = new Quill('#Description', {
+        theme: 'snow',
+        modules: { 
+            toolbar: { 
+                container: toolbarOptions,  
+                handlers: { image: imageHandler } 
+            }
+        }
+      });
+      
+      function imageHandler() {
+          let range = this.quill.getSelection();
+          let value = prompt('What is the image URL');
+          if(value){
+              this.quill.insertEmbed(range.index, 'image', value, Quill.sources.USER);
+          }
+      }
+    </script>
+}
